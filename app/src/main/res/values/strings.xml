@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">U Talent</string>
+    <string name="temukan_developer_berbakat_amp_terbaik_di_berbagai_bidang_keahlian"><![CDATA[Temukan Developer berbakat & terbaik di berbagai bidang keahlian]]></string>
+    <string name="talentyou">U Talent</string>
+    <string name="title_activity_login_worker">LoginWorkerActivity</string>
+    <string name="prompt_email">Masukkan Alamat Email</string>
+    <string name="prompt_password">Masukkan Kata Sandi</string>
+    <string name="action_sign_in">Sign in </string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_login_recruiter">LoginRecruiterActivity</string>
+    <string name="masuk_sebagai_pekerja">Masuk Sebagai Pekerja</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="silahkan_registrasi">Silahkan Registrasi</string>
+    <string name="nama">Nama</string>
+    <string name="no_handphone">No Handphone</string>
+    <string name="masukkan_alamat_email">Masukkan Alamat Email</string>
+    <string name="email">Email</string>
+    <string name="masukkan_nama_panjang">Masukkan Nama Panjang</string>
+    <string name="masukkan_konfirmasi_kata_sandi">Masukkan Konfirmasi Kata Sandi</string>
+    <string name="konfirmasi_kata_sandi">Konfirmasi Kata Sandi</string>
+    <string name="masukkan_kata_sandi">Masukkan Kata Sandi</string>
+    <string name="kata_sandi">Kata Sandi</string>
+    <string name="sen_21_arpil_2020">Sen, 21 Arpil 2020</string>
+    <string name="recruiter">Recruiter</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="lupa_kata_sandi">Lupa Kata Sandi ?</string>
+    <string name="perusahaan">Perusahaan</string>
+    <string name="masukkan_nama_perusahaan">Masukkan Nama Perusahaan</string>
+    <string name="jabatan">Jabatan</string>
+    <string name="ahmad_farhan_el_ramdhani">Ahmad Farhan El Ramdhani</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="afarelramdani">afarelramdani</string>
+    <string name="ahmadfarhanel_gmail_com">ahmadfarhanel@gmail.com</string>
+    <string name="pengalaman_kerja">Pengalaman Kerja</string>
+    <string name="portofolio">Portofolio</string>
+</resources>

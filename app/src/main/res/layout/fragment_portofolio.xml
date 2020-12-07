@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".recruiter.PortofolioFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginRight="220dp"
+            android:background="#EAE7E7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_portofolio_1"
+            android:background="#EAE7E7"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/portofolio1"
+            android:layout_margin="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_portofolio_2"
+            android:background="#EAE7E7"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/portofolio2"
+            android:layout_margin="50dp"
+            app:layout_constraintTop_toBottomOf="@id/iv_portofolio_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_portofolio_3"
+            android:background="#EAE7E7"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/portofolio3"
+            android:layout_margin="50dp"
+            app:layout_constraintTop_toBottomOf="@id/iv_portofolio_2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
