@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#403838"
+    android:background="@drawable/splash2"
     tools:context=".SplashScreen">
 
 
@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
-        android:textColor="@color/orange_skill"
-        android:text="YOUTALENT"
+        android:textColor="@color/logo"
+        android:text="uTalent"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="40sp"
         android:textStyle="bold"

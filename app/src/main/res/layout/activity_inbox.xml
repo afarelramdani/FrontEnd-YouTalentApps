@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAE7E7"
+    android:background="@color/colorPrimary"
     tools:context=".inbox.InboxActivity">
 
     <TextView
         android:id="@+id/tv_inbox_type"
         android:text="UTAMA"
         android:layout_width="match_parent"
+        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="30dp"
@@ -47,6 +48,7 @@
             android:textStyle="bold"
             android:textSize="15sp"
             android:gravity="center"
+            android:textColor="@android:color/white"
             app:layout_constraintTop_toBottomOf="@+id/iv_image_nomessage"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>

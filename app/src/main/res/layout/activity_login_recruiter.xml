@@ -5,10 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#403838"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="@color/colorPrimary"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".login.LoginRecruiterActivity">
 
@@ -82,16 +80,15 @@
         app:layout_constraintTop_toBottomOf="@id/tv_login_to_title" />
 
     <EditText
-        android:id="@+id/et_login_username"
+        android:id="@+id/et_login_email_recruiter"
         android:maxLines="1"
         android:lines="1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textColorHighlight="#7cff88"
-        android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/raduisedittext"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
@@ -113,15 +110,15 @@
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_username" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_email_recruiter" />
 
 
     <EditText
-        android:id="@+id/et_login_password"
+        android:id="@+id/et_login_password_recruiter"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
@@ -147,7 +144,7 @@
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_password" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_password_recruiter" />
 
     <Button
         android:id="@+id/btn_login_recruiter"

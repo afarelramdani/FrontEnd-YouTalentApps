@@ -19,9 +19,9 @@
             android:id="@+id/frame_talent_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
             android:background="#EAE7E7">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +34,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
+                <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/tv_picture_talent_profile"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -42,7 +42,9 @@
                     android:src="@drawable/dalmiku"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
 
                 <TextView
                     android:id="@+id/tv_edit_profile_icon"
@@ -209,9 +211,9 @@
                     android:id="@+id/et_edit_name_profile"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/raduisedittext"
                     android:hint="Masukkan Nama Lengkap"
                     android:paddingLeft="10dp"
@@ -235,9 +237,9 @@
                     android:id="@+id/et_edit_jobtitle_profile"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/raduisedittext"
                     android:hint="Masukan Job Titlte"
                     android:paddingLeft="10dp"
@@ -261,9 +263,9 @@
                     android:id="@+id/et_edit_domisili_profile"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/raduisedittext"
                     android:hint="Masukan Domisili"
                     android:paddingLeft="10dp"
@@ -288,10 +290,10 @@
                     android:id="@+id/et_edit_location_profile"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:paddingLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/raduisedittext"
                     android:hint="Masukan Tempat Kerja"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -301,7 +303,7 @@
                 <TextView
                     android:id="@+id/tv_edit_desc_profile"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="20dp"
                     android:paddingLeft="10dp"
@@ -316,8 +318,8 @@
                     android:id="@+id/et_edit_desc_profile"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:gravity="top"
                     android:paddingTop="10dp"
                     android:layout_marginTop="10dp"
@@ -565,7 +567,8 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@android:color/holo_purple"
+                        android:background="@drawable/radiusbuttonround"
+                        android:textColor="@android:color/white"
                         android:text="Tambahkan Pengalaman Kerja"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -578,10 +581,56 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
     </ScrollView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frame_bar_down"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_background_bardown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frame_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="NotSibling">
+
+
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_marginTop="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_baseline_view_list_menu"
+            app:layout_constraintRight_toLeftOf="@id/btn_search_menu"/>
+
+        <Button
+            android:id="@+id/btn_search_menu"
+            android:layout_marginTop="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_baseline_search_menu"
+            app:layout_constraintLeft_toRightOf="@id/btn_menu"
+            app:layout_constraintRight_toLeftOf="@id/btn_message_menu"/>
+        <Button
+            android:id="@+id/btn_message_menu"
+            android:layout_marginTop="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_baseline_message_menu"
+            app:layout_constraintRight_toLeftOf="@id/btn_profile_menu"
+            app:layout_constraintLeft_toRightOf="@id/btn_search_menu"/>
+        <Button
+            android:id="@+id/btn_profile_menu"
+            android:layout_marginTop="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_baseline_account_circle_menu"
+            app:layout_constraintLeft_toRightOf="@id/btn_message_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.hire.ProfileTalentHireActivity
 import com.afarelramdani.talentyou.inbox.InboxActivity
+import com.afarelramdani.talentyou.search.SearchActivity
 import com.afarelramdani.talentyou.talent.ProfileExperienceActivity
 import kotlinx.android.synthetic.main.activity_home_recruiter.*
 
@@ -26,6 +27,10 @@ class HomeRecruiterActivity : AppCompatActivity(), View.OnClickListener {
         val btnHome = findViewById<ConstraintLayout>(R.id.frame_1_home)
         btnHome.setOnClickListener(this)
 
+        val btnSearch:Button = findViewById(R.id.btn_search_menu)
+        btnSearch.setOnClickListener(this)
+
+
 
     }
 
@@ -39,11 +44,17 @@ class HomeRecruiterActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_message_menu -> {
                 val moveToInbox = Intent(this, InboxActivity::class.java)
                 startActivity(moveToInbox)
+
             }
 
             R.id.btn_profile_menu -> {
-                val moveToExperience = Intent(this, ProfileExperienceActivity::class.java)
-                startActivity(moveToExperience)
+                val moveToRecruiterProfile = Intent(this, RecruiterProfileActivity::class.java)
+                startActivity(moveToRecruiterProfile)
+            }
+
+            R.id.btn_search_menu -> {
+                val moveToSearch = Intent(this, SearchActivity::class.java)
+                startActivity(moveToSearch)
             }
         }
     }
