@@ -7,32 +7,27 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.recruiter.HomeRecruiterActivity
+import com.afarelramdani.talentyou.databinding.ActivityLoginRecruiterBinding
+import com.afarelramdani.talentyou.home.HomeRecruiterActivity
 import com.afarelramdani.talentyou.register.RegisterRecruiterActivity
 import kotlinx.android.synthetic.main.activity_login_recruiter.*
-import kotlinx.android.synthetic.main.activity_login_talent.*
-import kotlinx.android.synthetic.main.activity_login_talent.et_login_password
 
-class LoginRecruiterActivity : AppCompatActivity(), View.OnClickListener {
+class LoginRecruiterActivity : BaseActivity<ActivityLoginRecruiterBinding>(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setLayout = R.layout.activity_login_recruiter
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_recruiter)
 
-        val btnMoveToRegisterRecruiter: TextView = findViewById(R.id.tv_gotoregister_recruiter_login)
-        btnMoveToRegisterRecruiter.setOnClickListener(this)
+        binding.tvGotoregisterRecruiterLogin.setOnClickListener(this)
+        binding.btnLoginRecruiter.setOnClickListener(this)
+        binding.tvForgetPassword.setOnClickListener(this)
 
-        val btnLoginSuccesRecruiter: Button = findViewById(R.id.btn_login_recruiter)
-        btnLoginSuccesRecruiter.setOnClickListener(this)
-
-        val tvGotoForgetPassword: TextView = findViewById(R.id.tv_forget_password)
-        tvGotoForgetPassword.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         val email = et_login_email_recruiter.text.toString()
         val password = et_login_password_recruiter.text.toString()
-
 
         when (v?.id) {
             R.id.btn_login_recruiter -> {
@@ -43,8 +38,7 @@ class LoginRecruiterActivity : AppCompatActivity(), View.OnClickListener {
                 } else if (password.isEmpty()) {
                     Toast.makeText(this, "Tolong Masukkan Password" , Toast.LENGTH_SHORT).show()
                 } else {
-                    val moveIntentToHomeRecruiter = Intent(this, HomeRecruiterActivity::class.java)
-                    startActivity(moveIntentToHomeRecruiter)
+                    baseStartActivity<HomeRecruiterActivity>(this)
                 }
 
             }

@@ -1,636 +1,605 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".talent.ProfileExperienceActivity">
-
-    <ScrollView
-        android:id="@+id/sv_home"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EAE7E7"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".talent.ProfileExperienceActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frame_talent_profile"
+        <ScrollView
+            android:id="@+id/sv_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:background="#EAE7E7">
+            android:layout_height="match_parent"
+            android:background="#EAE7E7"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_1_profile"
+                android:id="@+id/frame_talent_profile"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/white"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#EAE7E7">
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/tv_picture_talent_profile"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="50dp"
-                    android:src="@drawable/dalmiku"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-
-                <TextView
-                    android:id="@+id/tv_edit_profile_icon"
-                    android:background="@drawable/ic_baseline_edit_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginLeft="120dp"
-                    app:layout_constraintRight_toLeftOf="@+id/tv_edit_profile"
-                    app:layout_constraintTop_toBottomOf="@id/tv_picture_talent_profile"/>
-
-                <TextView
-                    android:id="@+id/tv_edit_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit"
-                    android:textSize="20dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_picture_talent_profile"/>
-                <TextView
-                    android:id="@+id/tv_name_talent_profile"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_1_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="30dp"
-                    android:text="@string/ahmad_farhan_el_ramdhani"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_profile"
-
-                    />
-
-                <TextView
-                    android:id="@+id/tv_job_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="30dp"
-                    android:textStyle="bold"
-                    android:text="Web Developer"
-                    android:textSize="15sp"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_name_talent_profile" />
-
-                <TextView
-                    android:id="@+id/tv_location_icon_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/ic_baseline_location_on_24"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_job_profile" />
-
-                <TextView
-                    android:id="@+id/tv_location_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="30dp"
-                    android:gravity="left"
-                    android:text="Sukabumi, Jawa Barat"
-                    android:textSize="12sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_job_profile" />
-
-                <TextView
-                    android:id="@+id/tv_type_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginRight="30dp"
-                    android:text="Freelance"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_location_icon_profile" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <Button
-                android:id="@+id/btn_editprofile_talent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/radiusbuttonfirst"
-                android:cursorVisible="true"
-                android:text="Simpan"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cs_frame_1_profile" />
-            <Button
-                android:id="@+id/btn_cancle_editprofile_talent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/radiusbuttonround"
-                android:textColor="@android:color/white"
-                android:text="Batal"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_editprofile_talent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_2_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/white"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_cancle_editprofile_talent">
-
-                <LinearLayout
-                    android:id="@+id/lr_data_diri_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="Data Diri" />
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_3_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                android:background="@android:color/white"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cs_frame_2_profile">
-
-                <TextView
-                    android:id="@+id/tv_edit_name_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Nama Lengkap"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/et_edit_name_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Masukkan Nama Lengkap"
-                    android:paddingLeft="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_name_profile" />
-
-                <TextView
-                    android:id="@+id/tv_edit_jobtitle_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Job Title"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_edit_name_profile" />
-
-                <EditText
-                    android:id="@+id/et_edit_jobtitle_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Masukan Job Titlte"
-                    android:paddingLeft="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_jobtitle_profile" />
-
-                <TextView
-                    android:id="@+id/tv_edit_domisili_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Domisili"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_edit_jobtitle_profile" />
-
-                <EditText
-                    android:id="@+id/et_edit_domisili_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Masukan Domisili"
-                    android:paddingLeft="10dp"
+                    android:background="@android:color/white"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_domisili_profile" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tv_edit_location_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Tempat Kerja"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_edit_domisili_profile" />
-
-                <EditText
-                    android:id="@+id/et_edit_location_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Masukan Tempat Kerja"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_location_profile" />
-
-                <TextView
-                    android:id="@+id/tv_edit_desc_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:paddingLeft="10dp"
-                    android:text="Deskripsi Singkat"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_edit_location_profile" />
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/tv_picture_talent_profile"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="50dp"
+                        android:src="@drawable/dalmiku"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
 
 
-                <EditText
-                    android:id="@+id/et_edit_desc_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:gravity="top"
-                    android:paddingTop="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Tuliskan Deskripsi Singkat"
-                    android:paddingLeft="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_desc_profile" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_4_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/white"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cs_frame_3_profile">
-
-                <LinearLayout
-                    android:id="@+id/lr_skill_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/tv_edit_profile_icon"
+                        android:background="@drawable/ic_baseline_edit_24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="12dp"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="Skill" />
-                </LinearLayout>
+                        android:layout_marginLeft="120dp"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_edit_profile"
+                        app:layout_constraintTop_toBottomOf="@id/tv_picture_talent_profile"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit"
+                        android:textSize="20dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_picture_talent_profile"/>
+                    <TextView
+                        android:id="@+id/tv_name_talent_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="30dp"
+                        android:text="@string/ahmad_farhan_el_ramdhani"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_profile"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_job_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="30dp"
+                        android:textStyle="bold"
+                        android:text="Web Developer"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_name_talent_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_location_icon_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_baseline_location_on_24"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_job_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_location_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="30dp"
+                        android:gravity="left"
+                        android:text="Sukabumi, Jawa Barat"
+                        android:textSize="12sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_job_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_type_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginRight="30dp"
+                        android:text="Freelance"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_location_icon_profile" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_5_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                android:background="@android:color/white"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cs_frame_4_profile">
-
-                <EditText
-                    android:id="@+id/et_skill_profile"
-                    android:hint="Java"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/raduisedittext"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginLeft="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
-                    android:id="@+id/btn_save_edit_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp"
+                    android:id="@+id/btn_editprofile_talent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radiusbuttonfirst"
+                    app:backgroundTint="#ECA456"
+                    android:cursorVisible="true"
                     android:text="Simpan"
-                    app:layout_constraintLeft_toRightOf="@+id/et_skill_profile"
-                    app:layout_constraintRight_toRightOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_6_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/white"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cs_frame_5_profile">
-
-                <LinearLayout
-                    android:id="@+id/lr_experience_profile"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_1_profile" />
+                <Button
+                    android:id="@+id/btn_cancle_editprofile_talent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:layout_marginLeft="12dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="Pengalaman Kerja" />
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cs_frame_7_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="100dp"
-                android:background="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cs_frame_6_profile"
-                app:layout_constraintVertical_bias="1.0">
-
-                <TextView
-                    android:id="@+id/tv_position_experience_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:text="Posisi"
-                    android:textSize="14sp"
+                    android:background="@drawable/radiusbuttonround"
+                    android:textColor="@android:color/white"
+                    android:text="Batal"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/et_position_experience_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Web Developer"
-                    android:paddingLeft="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_position_experience_profile" />
-
-                <TextView
-                    android:id="@+id/tv_namecompany_experience_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Nama Perusahaan"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_position_experience_profile" />
-
-                <EditText
-                    android:id="@+id/et_namecompany_experience_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="PT Mamkur Jaya"
-                    android:paddingLeft="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_namecompany_experience_profile" />
-
-                <TextView
-                    android:id="@+id/tv_date_experience_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Bulan/Tahun"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_namecompany_experience_profile" />
-
-                <EditText
-                    android:id="@+id/et_date_experience_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:background="@drawable/raduisedittext"
-                    android:hint="Desember 2020"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_date_experience_profile" />
-
-                <TextView
-                    android:id="@+id/tv_experience_desc_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Deskripsi Singkat"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_date_experience_profile" />
-
-
-                <EditText
-                    android:id="@+id/et_experience_desc_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:paddingLeft="10dp"
-                    android:background="@drawable/raduisedittext"
-                    android:gravity="top"
-                    android:hint="Deskripsikan pekerjaan anda"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_experience_desc_profile" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/btn_editprofile_talent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cs_frame_8_profile"
+                    android:id="@+id/cs_frame_2_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
                     android:background="@android:color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_experience_desc_profile">
+                    app:layout_constraintTop_toBottomOf="@+id/btn_cancle_editprofile_talent">
 
-                    <Button
-                        android:id="@+id/btn_add_experience_profile"
+                    <LinearLayout
+                        android:id="@+id/lr_data_diri_profile"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/radiusbuttonround"
-                        android:textColor="@android:color/white"
-                        android:text="Tambahkan Pengalaman Kerja"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="Data Diri" />
+                    </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_3_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_2_profile">
+
+                    <TextView
+                        android:id="@+id/tv_edit_name_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Nama Lengkap"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/et_edit_name_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Masukkan Nama Lengkap"
+                        android:paddingLeft="10dp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_name_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_jobtitle_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Job Title"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_edit_name_profile" />
+
+                    <EditText
+                        android:id="@+id/et_edit_jobtitle_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Masukan Job Titlte"
+                        android:paddingLeft="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_jobtitle_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_domisili_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Domisili"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_edit_jobtitle_profile" />
+
+                    <EditText
+                        android:id="@+id/et_edit_domisili_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Masukan Domisili"
+                        android:paddingLeft="10dp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_domisili_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_location_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Tempat Kerja"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_edit_domisili_profile" />
+
+                    <EditText
+                        android:id="@+id/et_edit_location_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Masukan Tempat Kerja"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_location_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_desc_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:paddingLeft="10dp"
+                        android:text="Deskripsi Singkat"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_edit_location_profile" />
+
+
+                    <EditText
+                        android:id="@+id/et_edit_desc_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="top"
+                        android:paddingTop="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Tuliskan Deskripsi Singkat"
+                        android:paddingLeft="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_desc_profile" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_4_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_3_profile">
+
+                    <LinearLayout
+                        android:id="@+id/lr_skill_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="Skill" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_5_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_4_profile">
+
+                    <EditText
+                        android:id="@+id/et_skill_profile"
+                        android:hint="Java"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/raduisedittext"
+                        android:paddingLeft="10dp"
+                        android:layout_marginRight="100dp"
+                        android:layout_marginLeft="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <Button
+                        android:id="@+id/btn_save_edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="8dp"
+                        android:text="Simpan"
+                        app:layout_constraintLeft_toRightOf="@+id/et_skill_profile"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_6_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_5_profile">
+
+                    <LinearLayout
+                        android:id="@+id/lr_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="Pengalaman Kerja" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_7_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="100dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_6_profile"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <TextView
+                        android:id="@+id/tv_position_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Posisi"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/et_position_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Web Developer"
+                        android:paddingLeft="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_position_experience_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_namecompany_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Nama Perusahaan"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_position_experience_profile" />
+
+                    <EditText
+                        android:id="@+id/et_namecompany_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="PT Mamkur Jaya"
+                        android:paddingLeft="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_namecompany_experience_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_date_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Bulan/Tahun"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_namecompany_experience_profile" />
+
+                    <EditText
+                        android:id="@+id/et_date_experience_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/raduisedittext"
+                        android:hint="Desember 2020"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_date_experience_profile" />
+
+                    <TextView
+                        android:id="@+id/tv_experience_desc_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Deskripsi Singkat"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_date_experience_profile" />
+
+
+                    <EditText
+                        android:id="@+id/et_experience_desc_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/raduisedittext"
+                        android:gravity="top"
+                        android:hint="Deskripsikan pekerjaan anda"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_experience_desc_profile" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cs_frame_8_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:background="@android:color/white"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_experience_desc_profile">
+
+                        <Button
+                            android:id="@+id/btn_add_experience_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/radiusbuttonround"
+                            android:textColor="@android:color/white"
+                            android:text="Tambahkan Pengalaman Kerja"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </ScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frame_bar_down"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/ic_background_bardown"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frame_home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="NotSibling">
-
-
-        <Button
-            android:id="@+id/btn_menu"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/ic_baseline_view_list_menu"
-            app:layout_constraintRight_toLeftOf="@id/btn_search_menu"/>
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:menu="@menu/bottom_navigation_menu" />
 
-        <Button
-            android:id="@+id/btn_search_menu"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/ic_baseline_search_menu"
-            app:layout_constraintLeft_toRightOf="@id/btn_menu"
-            app:layout_constraintRight_toLeftOf="@id/btn_message_menu"/>
-        <Button
-            android:id="@+id/btn_message_menu"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/ic_baseline_message_menu"
-            app:layout_constraintRight_toLeftOf="@id/btn_profile_menu"
-            app:layout_constraintLeft_toRightOf="@id/btn_search_menu"/>
-        <Button
-            android:id="@+id/btn_profile_menu"
-            android:layout_marginTop="10dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_baseline_account_circle_menu"
-            app:layout_constraintLeft_toRightOf="@id/btn_message_menu"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

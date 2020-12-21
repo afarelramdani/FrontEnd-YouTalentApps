@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#403838</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+<resources>#F3C12C
+    <color name="colorPrimary">#F3C12C</color>
+    <color name="colorPrimaryDark">#403838</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#ffff</color>
     <color name="black">#000000</color>
     <color name="orange_skill">#F3C12C</color>
     <color name="logo">#f37221</color>
+    <color name="bottomBar">#FF3333</color>
+
 </resources>

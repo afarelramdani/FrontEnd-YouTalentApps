@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.afarelramdani.talentyou">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher5_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login.ForgetPasswordActivity"></activity>
+        <activity android:name=".webview.WebViewActivity"></activity>
+        <activity android:name=".home.HomeTalentActivity" />
+        <activity android:name=".login.ForgetPasswordActivity" />
         <activity android:name=".login.ForgetPasswordConfirmationActivity" />
         <activity android:name=".talent.ProfileTalentActivity" />
         <activity android:name=".recruiter.EditRecruiterActivity" />
@@ -21,7 +25,7 @@
         <activity android:name=".search.SearchActivity" />
         <activity android:name=".register.RegisterRecruiterActivity" />
         <activity android:name=".register.RegisterTalentActivity" />
-        <activity android:name=".recruiter.HomeRecruiterActivity" />
+        <activity android:name=".home.HomeRecruiterActivity" />
         <activity android:name=".talent.HomeTalentActivity" />
         <activity android:name=".login.LoginRecruiterActivity" />
         <activity android:name=".login.LoginTalentActivity" />

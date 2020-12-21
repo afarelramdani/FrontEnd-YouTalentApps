@@ -1,52 +1,36 @@
 package com.afarelramdani.talentyou.talent
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
+import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.inbox.InboxActivity
-import com.afarelramdani.talentyou.recruiter.ExperienceFragment
-import com.afarelramdani.talentyou.recruiter.PortofolioFragment
-import kotlinx.android.synthetic.main.activity_profile_talent.*
-import kotlinx.android.synthetic.main.activity_profile_talent_hire.*
-import kotlinx.android.synthetic.main.activity_profile_talent_hire.tv_experience_detail
-import kotlinx.android.synthetic.main.activity_profile_talent_hire.tv_portofolio_detail
+import com.afarelramdani.talentyou.databinding.ActivityProfileTalentBinding
+import com.afarelramdani.talentyou.fragmentTalent.ProfileTalentAdapter
 
-class ProfileTalentActivity : AppCompatActivity(), View.OnClickListener {
+class ProfileTalentActivity : BaseActivity<ActivityProfileTalentBinding>(), View.OnClickListener {
+    private lateinit var pageAdapter: ProfileTalentAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
+        setLayout = R.layout.activity_profile_talent
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_talent)
 
-        val tvEmail: TextView = findViewById(R.id.tv_email_profile)
 
-        val email = intent.getStringExtra("email")
-        tvEmail.text = email
-
-        val fragment1 = PortofolioFragment()
-        val fragment2 = ExperienceFragment()
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fr_fragment_experience_portofolio, fragment1)
-            commit()
+        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationOnClickListener{
+            onBackPressed()
         }
 
-        tv_portofolio_detail.setOnClickListener{
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fr_fragment_experience_portofolio, fragment1)
-                commit()
-            }
-        }
-        tv_experience_detail.setOnClickListener{
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fr_fragment_experience_portofolio, fragment2)
-                commit()
-            }
-        }
 
-        val btnEditHireTalent: Button = findViewById(R.id.btn_edit_hire_talent)
-        btn_edit_hire_talent.setOnClickListener(this)
+        pageAdapter = ProfileTalentAdapter(supportFragmentManager)
+        binding.viewPager.adapter = pageAdapter
+
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+
+        val btnEditHireTalent = binding.btnEditHireTalent
+        btnEditHireTalent.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

@@ -1,33 +1,26 @@
 package com.afarelramdani.talentyou.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.register.RegisterRecruiterActivity
+import com.afarelramdani.talentyou.databinding.ActivityLoginTalentBinding
+import com.afarelramdani.talentyou.home.HomeTalentActivity
 import com.afarelramdani.talentyou.register.RegisterTalentActivity
-import com.afarelramdani.talentyou.talent.ProfileTalentActivity
 import kotlinx.android.synthetic.main.activity_login_talent.*
 
-class LoginTalentActivity : AppCompatActivity(), View.OnClickListener {
+
+class LoginTalentActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        setLayout = R.layout.activity_login_talent
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_talent)
 
-        val btnMoveToRegisterTalent: TextView = findViewById(R.id.tv_gotoregister_talent_login)
-        btnMoveToRegisterTalent.setOnClickListener(this)
-
-        val btnMoveToTalentProfile: Button = findViewById(R.id.btn_login_talent)
-        btnMoveToTalentProfile.setOnClickListener(this)
-
-        val tvGotoForgetPasswordTalent: TextView = findViewById(R.id.tv_forget_password_talent)
-        tvGotoForgetPasswordTalent.setOnClickListener(this)
-
+        binding.tvGotoregisterTalentLogin.setOnClickListener(this)
+        binding.btnLoginTalent.setOnClickListener(this)
+        binding.tvForgetPasswordTalent.setOnClickListener(this)
 
 
 
@@ -44,6 +37,7 @@ class LoginTalentActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_login_talent -> {
+                var emailRegist = sharePref.getAccountEmail()
 
                 if (email.isEmpty() && password.isEmpty()) {
                     Toast.makeText(this, "Tolong Masukkan Email Dan Password" , Toast.LENGTH_SHORT).show()
@@ -52,17 +46,16 @@ class LoginTalentActivity : AppCompatActivity(), View.OnClickListener {
                 } else if (password.isEmpty()) {
                     Toast.makeText(this, "Tolong Masukkan Password" , Toast.LENGTH_SHORT).show()
                 } else {
-                    val moveToProfileTalent = Intent(this, ProfileTalentActivity::class.java)
-                    val email = et_login_email.text.toString()
-                    if(email.isEmpty() ) {
-                        moveToProfileTalent.putExtra("email", "ahmadfarhanel@gmail.com")
-                        startActivity(moveToProfileTalent)
-                        finish()
+
+                    if (email == emailRegist) {
+                        sharePref.Remember(true)
+
+                        sharePref.Github("afarelramdani")
+                        baseStartActivity<HomeTalentActivity>(this)
                     } else {
-                        moveToProfileTalent.putExtra("email", email)
-                        startActivity(moveToProfileTalent)
-                        finish()
-                }
+                        Toast.makeText(this, "Data Belum Ada" , Toast.LENGTH_SHORT).show()
+                    }
+
                 }
 
 

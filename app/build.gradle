@@ -1,6 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
 
 android {
     compileSdkVersion 30
@@ -8,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.afarelramdani.talentyou"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -21,6 +24,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -38,5 +45,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
 
 }

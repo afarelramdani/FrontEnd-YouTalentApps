@@ -1,16 +1,17 @@
 package com.afarelramdani.talentyou.hire
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.recruiter.ExperienceFragment
-import com.afarelramdani.talentyou.recruiter.PortofolioFragment
+import com.afarelramdani.talentyou.databinding.ActivityProfileTalentBinding
+import com.afarelramdani.talentyou.experience.ExperienceFragment
+import com.afarelramdani.talentyou.portofolio.PortofolioFragment
 import kotlinx.android.synthetic.main.activity_profile_talent_hire.*
 
-class ProfileTalentHireActivity : AppCompatActivity() {
+class ProfileTalentHireActivity : BaseActivity<ActivityProfileTalentBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setLayout = R.layout.activity_profile_talent_hire
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_talent_hire)
 
         val fragment1 = PortofolioFragment()
         val fragment2 = ExperienceFragment()
