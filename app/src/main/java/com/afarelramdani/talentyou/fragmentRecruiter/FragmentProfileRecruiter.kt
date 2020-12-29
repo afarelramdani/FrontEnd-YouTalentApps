@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.afarelramdani.talentyou.BaseFragment
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.FragmentProfileRecruiterBinding
-import com.afarelramdani.talentyou.fragmentTalent.FragmentEditProfileTalent
 
 
 class FragmentProfileRecruiter: BaseFragment<FragmentProfileRecruiterBinding>(), View.OnClickListener {

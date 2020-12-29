@@ -7,5 +7,5 @@ data class ProjectResponse(val succes: String, val message: String, val data: Li
                        @SerializedName("cn_id") val companyId: String,
                        @SerializedName("pj_project_name") val projectName: String,
                        @SerializedName("pj_desc") val proejctDesc: String,
-                       @SerializedName("pj_deadline") val projectDeadline: String,)
+                       @SerializedName("pj_deadline") val projectDeadline: String)
 }

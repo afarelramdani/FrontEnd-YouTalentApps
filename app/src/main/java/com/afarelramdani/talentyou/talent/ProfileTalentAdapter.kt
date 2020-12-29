@@ -1,4 +1,4 @@
-package com.afarelramdani.talentyou.fragmentTalent
+package com.afarelramdani.talentyou.talent
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

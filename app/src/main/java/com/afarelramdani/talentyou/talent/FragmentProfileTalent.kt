@@ -1,15 +1,11 @@
-package com.afarelramdani.talentyou.fragmentTalent
+package com.afarelramdani.talentyou.talent
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebViewClient
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.BaseFragment
@@ -41,6 +37,8 @@ class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.
 
         binding.viewPager.adapter = pageAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
+
+
         return binding.root
     }
 
@@ -58,5 +56,6 @@ class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.
             }
         }
     }
+
 
 }
