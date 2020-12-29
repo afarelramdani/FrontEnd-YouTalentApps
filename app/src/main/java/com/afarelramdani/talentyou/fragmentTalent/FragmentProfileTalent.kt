@@ -12,14 +12,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.afarelramdani.talentyou.BaseActivity
+import com.afarelramdani.talentyou.BaseFragment
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.FragmentProfileTalentBinding
 
 import com.afarelramdani.talentyou.util.SharedPreferences
 import com.afarelramdani.talentyou.webview.WebViewActivity
 
-class FragmentProfileTalent: Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentProfileTalentBinding
+class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.OnClickListener {
     private lateinit var pageAdapter: ProfileTalentAdapter
 
     override fun onCreateView(
@@ -53,7 +53,7 @@ class FragmentProfileTalent: Fragment(), View.OnClickListener {
             R.id.btn_edit_hire_talent -> {
                 val fragmentProfileTalent = FragmentEditProfileTalent()
                 fragmentManager?.beginTransaction()
-                    ?.replace(R.id.fragment_container_home,  fragmentProfileTalent)
+                    ?.replace(R.id.fragment_container_talent,  fragmentProfileTalent)
                     ?.commit()
             }
         }

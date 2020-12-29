@@ -14,6 +14,7 @@ import com.afarelramdani.talentyou.databinding.ActivityHomeTalentBinding
 import com.afarelramdani.talentyou.fragmentTalent.FragmentHomeTalent
 import com.afarelramdani.talentyou.fragmentTalent.FragmentProfileTalent
 import com.afarelramdani.talentyou.login.LoginTalentActivity
+import com.afarelramdani.talentyou.project.ProjectFragment
 import kotlinx.android.synthetic.main.activity_home_talent.*
 
 class HomeTalentActivity : BaseActivity<ActivityHomeTalentBinding>() {
@@ -24,18 +25,24 @@ class HomeTalentActivity : BaseActivity<ActivityHomeTalentBinding>() {
 
         val fragmentHomeTalent = FragmentHomeTalent()
         setSupportActionBar(binding.toolbar)
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_home, fragmentHomeTalent).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_talent, fragmentHomeTalent).commit()
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_1 -> {
                     val fragmentHomeTalent = FragmentHomeTalent()
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container_home, fragmentHomeTalent).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container_talent, fragmentHomeTalent).commit()
+                    true
+                }
+
+                R.id.page_3 -> {
+                    val fragmentProject = ProjectFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container_talent, fragmentProject).commit()
                     true
                 }
 
                 R.id.page_4 -> {
                     val fragmentProfileTalent = FragmentProfileTalent()
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container_home, fragmentProfileTalent).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container_talent, fragmentProfileTalent).commit()
                     true
                 }
 

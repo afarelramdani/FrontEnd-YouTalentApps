@@ -19,9 +19,18 @@ class FragmentHomeRecruiter: BaseFragment<FragmentHomeRecruiterBinding>() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_recruiter, container, false)
-        binding.rvListRecruiter.adapter = ListTalentAdapter()
-        binding.rvListRecruiter.layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
+
+        listTalentRecycleView()
+
         return binding.root
     }
+
+    private fun listTalentRecycleView() {
+        binding.rvListRecruiter.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL,false)
+        val listAdapter = ListTalentAdapter()
+        binding.rvListRecruiter.adapter = listAdapter
+
+    }
+
 
 }

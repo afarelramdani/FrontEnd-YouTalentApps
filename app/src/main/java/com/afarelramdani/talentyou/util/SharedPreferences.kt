@@ -8,6 +8,7 @@ class SharedPreferences(private val context: Context) {
    companion object {
        private val SHARED_PREF_NAME = "My Shared"
        private val KEY_AC_NAME = "AC NAME"
+       private val TOKEN = "TOKEN"
        private val KEY_EMAIL = "EMAIL"
        private val KEY_LOGIN = "LOGIN"
        private val GITHUB = "GITHUB"
@@ -19,9 +20,10 @@ class SharedPreferences(private val context: Context) {
 
    private val edit: SharedPreferences.Editor = sharedPreferences.edit()
 
-    fun createAccountUser(acName: String, acEmail: String) {
+    fun createAccountUser(acName: String, acEmail: String, token: String) {
         edit.putString(KEY_AC_NAME, acName)
         edit.putString(KEY_EMAIL, acEmail)
+        edit.putString(TOKEN, token)
         edit.commit()
     }
 
@@ -29,6 +31,11 @@ class SharedPreferences(private val context: Context) {
     fun getAccountName(): String {
         var name = sharedPreferences.getString(KEY_AC_NAME, "Not set")!!
         return name
+    }
+
+    fun getToken(): String {
+        var token = sharedPreferences.getString(TOKEN, "Not set")!!
+        return token
     }
 
     fun getAccountEmail(): String {

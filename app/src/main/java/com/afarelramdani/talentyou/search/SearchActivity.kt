@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.hire.ProfileTalentHireActivity
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {

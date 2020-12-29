@@ -17,7 +17,6 @@ class RegisterTalentActivity : BaseActivity<ActivityRegisterTalentBinding>() {
         binding.btnRegister.setOnClickListener {
             val email = binding.etEmailRegister.text.toString()
             val nama = binding.etNameRegister.text.toString()
-            sharePref.createAccountUser(nama, email)
             Toast.makeText(this, "Daftar Berhasil" , Toast.LENGTH_SHORT).show()
             baseStartActivity<LoginTalentActivity>(this)
         }
