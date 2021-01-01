@@ -1,5 +1,6 @@
 package com.afarelramdani.talentyou
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,6 @@ import com.afarelramdani.talentyou.util.SharedPreferences
 abstract class BaseFragment<FragmentBase: ViewDataBinding> : Fragment() {
     protected lateinit var binding: FragmentBase
     protected var setLayout: Int? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

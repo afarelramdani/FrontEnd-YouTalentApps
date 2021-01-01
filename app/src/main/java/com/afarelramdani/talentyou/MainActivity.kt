@@ -1,16 +1,13 @@
 package com.afarelramdani.talentyou
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import com.afarelramdani.talentyou.databinding.ActivityMainBinding
-import com.afarelramdani.talentyou.home.HomeTalentActivity
-import com.afarelramdani.talentyou.login.LoginRecruiterActivity
-import com.afarelramdani.talentyou.login.LoginTalentActivity
-import com.afarelramdani.talentyou.webview.WebViewActivity
+import com.afarelramdani.talentyou.content.home.HomeActivity
+import com.afarelramdani.talentyou.content.login.LoginRecruiterActivity
+import com.afarelramdani.talentyou.content.login.LoginTalentActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
     var isRemembered = false
@@ -27,7 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
 
         isRemembered = sharePref.isLogin()
         if(isRemembered) {
-            baseStartActivity<HomeTalentActivity>(this)
+            baseStartActivity<HomeActivity>(this)
         }
 
     }

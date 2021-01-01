@@ -12,7 +12,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".register.RegisterTalentActivity">
+            tools:context=".content.register.RegisterTalentActivity">
 
             <TextView
                 android:layout_width="wrap_content"

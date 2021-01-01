@@ -1,13 +1,16 @@
 package com.afarelramdani.talentyou.util
 
+import com.afarelramdani.talentyou.model.dataengineer.DataEngineerRepsonse
+import com.afarelramdani.talentyou.model.datarecruiter.DataRecruiterResponse
 import com.afarelramdani.talentyou.model.login.LoginResponse
 import com.afarelramdani.talentyou.model.project.ProjectResponse
+import com.afarelramdani.talentyou.model.recruiter.ListEngineerResponse
 import com.afarelramdani.talentyou.model.register.RegisterTalentResponse
 import retrofit2.http.*
 
 interface ApiService {
-    @GET("hireApp/project")
-    suspend fun getProjectById(): ProjectResponse
+    var sharepref: SharedPreferences
+
 
     @FormUrlEncoded
     @POST("hireApp/login")
@@ -25,6 +28,18 @@ interface ApiService {
       @Field("acPassword") password: String,
       @Field("acLevel") accountLevel: Int,
     ): RegisterTalentResponse
+
+    @GET("hireApp/engineer")
+    suspend fun getAllEngineer(): ListEngineerResponse
+
+    @GET("hireApp/engineer/account/{id}")
+    suspend fun getEngineerIdByAccountId(@Path("id") acId: Int? ): DataEngineerRepsonse
+
+    @GET("hireApp/company/account/{id}")
+    suspend fun getCompanyIdByAccountId(@Path("id") acId: Int? ): DataRecruiterResponse
+
+    @GET("hireApp/projectByCompany/{companyId}")
+    suspend fun getProjectById(@Path("companyId") cnId: Int? ): ProjectResponse
 
 
 }

@@ -12,6 +12,9 @@ class SharedPreferences(private val context: Context) {
        private val KEY_EMAIL = "EMAIL"
        private val KEY_LOGIN = "LOGIN"
        private val GITHUB = "GITHUB"
+       private val AC_LEVEL = "LEVEL"
+       private val AC_ID= "ACCOUNT ID COMPANY"
+       private val CN_ID = "COMPANY ID"
 
    }
 
@@ -20,11 +23,34 @@ class SharedPreferences(private val context: Context) {
 
    private val edit: SharedPreferences.Editor = sharedPreferences.edit()
 
-    fun createAccountUser(acName: String, acEmail: String, token: String) {
+    fun createAccountUser(acId: Int, acName: String, acEmail: String, acLevel: Int, token: String) {
         edit.putString(KEY_AC_NAME, acName)
         edit.putString(KEY_EMAIL, acEmail)
+        edit.putInt(AC_LEVEL, acLevel)
+        edit.putInt(AC_ID, acId)
         edit.putString(TOKEN, token)
         edit.commit()
+    }
+
+    fun setCompanyId(cnId: Int) {
+        edit.putInt(CN_ID, cnId)
+        edit.commit()
+    }
+
+    fun getCompanyId(): Int {
+        var companyId = sharedPreferences.getInt(CN_ID, 0)!!
+        return companyId
+    }
+
+
+    fun getAccountId(): Int {
+        var accountId = sharedPreferences.getInt(AC_ID, 0)!!
+        return accountId
+    }
+
+    fun getAccountLevel(): Int {
+        var accountLevel = sharedPreferences.getInt(AC_LEVEL, 0)!!
+        return accountLevel
     }
 
 

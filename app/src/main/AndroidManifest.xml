@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.afarelramdani.talentyou">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -16,24 +17,19 @@
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="m"
         android:theme="@style/AppTheme">
-        <activity android:name=".webview.WebViewActivity" />
-        <activity android:name=".home.HomeTalentActivity" />
-        <activity android:name=".login.ForgetPasswordActivity" />
-        <activity android:name=".login.ForgetPasswordConfirmationActivity" />
-        <activity android:name=".talent.ProfileTalentActivity" />
-        <activity android:name=".recruiter.EditRecruiterActivity" />
-        <activity android:name=".recruiter.RecruiterProfileActivity" />
-        <activity android:name=".talent.ProfileExperienceActivity" />
-        <activity android:name=".hire.ProfileTalentHireActivity" />
-        <activity android:name=".inbox.InboxActivity" />
-        <activity android:name=".search.SearchResultActivity" />
-        <activity android:name=".search.SearchActivity" />
-        <activity android:name=".register.RegisterRecruiterActivity" />
-        <activity android:name=".register.RegisterTalentActivity" />
-        <activity android:name=".home.HomeRecruiterActivity" />
-        <activity android:name=".talent.HomeTalentActivity" />
-        <activity android:name=".login.LoginRecruiterActivity" />
-        <activity android:name=".login.LoginTalentActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.webview.WebViewActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.home.HomeActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.login.ForgetPasswordActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.login.ForgetPasswordConfirmationActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.recruiter.EditRecruiterActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.inbox.InboxActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.search.SearchResultActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.search.SearchActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.register.RegisterRecruiterActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.register.RegisterTalentActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.home.HomeRecruiterActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.login.LoginRecruiterActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.login.LoginTalentActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
