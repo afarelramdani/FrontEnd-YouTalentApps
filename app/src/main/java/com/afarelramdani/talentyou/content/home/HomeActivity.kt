@@ -48,10 +48,10 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
 
         if (sharePref.getAccountLevel() == 1) {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container_talent, fragmentHomeTalent).commit()
-            binding.tvToolbar.setText("Home Engineer")
+            binding.tvToolbar.setText("Home")
         } else if(sharePref.getAccountLevel() == 0) {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container_talent, fragmentHomeRecruiter).commit()
-            binding.tvToolbar.setText("Recruiter")
+            binding.tvToolbar.setText("Home")
         }
 
 

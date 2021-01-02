@@ -35,8 +35,8 @@ class ListEngineerAdapter(private val listEngineer : ArrayList<ListEngineerModel
 
         Glide.with(holder.itemView)
             .load(img)
-            .placeholder(R.drawable.dalmiku)
-            .error(R.drawable.dalmiku)
+            .placeholder(R.drawable.defaultimage)
+            .error(R.drawable.defaultimage)
             .into(holder.binding.ivTalent)
 
         holder.itemView.setOnClickListener {

@@ -15,6 +15,11 @@ class SharedPreferences(private val context: Context) {
        private val AC_LEVEL = "LEVEL"
        private val AC_ID= "ACCOUNT ID COMPANY"
        private val CN_ID = "COMPANY ID"
+       private val DETAIL_EN_ID = "ENGINEER ID"
+       private val ENGINEER_NAME = "ENGINEER NAME"
+       private val ENGINEER_EMAIL = "ENGINEER EMAIL"
+       private val JOB_TITTLE = "ENGINEER EMAIL"
+       private val PROJECT_ID = "PROJECT ID"
 
    }
 
@@ -31,6 +36,40 @@ class SharedPreferences(private val context: Context) {
         edit.putString(TOKEN, token)
         edit.commit()
     }
+
+    fun setEnginnerId(engineerId: Int) {
+        edit.putInt(DETAIL_EN_ID, engineerId)
+        edit.commit()
+    }
+
+    fun getEngineerId(): Int {
+        var engineerId = sharedPreferences.getInt(DETAIL_EN_ID, 0)!!
+        return engineerId
+    }
+
+
+    fun setProjectId(projectId: Int) {
+        edit.putInt(PROJECT_ID, projectId)
+        edit.commit()
+    }
+
+    fun getProjectId(): Int {
+        var projectId = sharedPreferences.getInt(PROJECT_ID, 0)!!
+        return projectId
+    }
+
+
+    fun getNameDetailEngineer(): String {
+        var engineerName = sharedPreferences.getString(ENGINEER_NAME, "Not Set")!!
+        return engineerName
+    }
+
+    fun getJobType(): String {
+        var jobType = sharedPreferences.getString(JOB_TITTLE, "Not Set")!!
+        return jobType
+    }
+
+
 
     fun setCompanyId(cnId: Int) {
         edit.putInt(CN_ID, cnId)

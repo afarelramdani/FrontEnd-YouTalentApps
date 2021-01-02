@@ -40,7 +40,7 @@ class ProjectListAdapter: RecyclerView.Adapter<ProjectListAdapter.ProjectHolder>
         val img = "http://3.80.117.134:2000/image/${item.projectPicture}"
 
         holder.binding.tvProjectName.text = item.projectName
-        holder.binding.tvProjectDeadline.text = item.projectDeadline
+        holder.binding.tvProjectDeadline.text = item.projectDeadline!!.split("T")[0]
         holder.binding.tvDesc.text = item.projectDesc
 
         Glide.with(holder.itemView)

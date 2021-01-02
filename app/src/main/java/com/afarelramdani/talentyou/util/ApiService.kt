@@ -2,13 +2,14 @@ package com.afarelramdani.talentyou.util
 
 import com.afarelramdani.talentyou.model.dataengineer.DataEngineerRepsonse
 import com.afarelramdani.talentyou.model.datarecruiter.DataRecruiterResponse
+import com.afarelramdani.talentyou.model.hire.HireResponse
 import com.afarelramdani.talentyou.model.login.LoginResponse
 import com.afarelramdani.talentyou.model.project.ProjectResponse
 import com.afarelramdani.talentyou.model.recruiter.ListEngineerResponse
 import com.afarelramdani.talentyou.model.register.RegisterTalentResponse
 import retrofit2.http.*
 
-interface ApiService {
+interface  ApiService {
     var sharepref: SharedPreferences
 
 
@@ -41,5 +42,19 @@ interface ApiService {
     @GET("hireApp/projectByCompany/{companyId}")
     suspend fun getProjectById(@Path("companyId") cnId: Int? ): ProjectResponse
 
+    @Multipart
+    @POST( "hireApp/project/createProject")
+    suspend fun addProject(
+    ): RegisterTalentResponse
+
+    @FormUrlEncoded
+    @POST("hireApp/hire/createHire")
+    suspend fun addHire(
+        @Field("enId") engineerId: Int,
+        @Field("pjId") projectId: Int,
+        @Field("hrPrice") hirePrice: String,
+        @Field("hrMessage") hireMessage: String,
+        @Field("hrStatus") hireStatus: String
+    ) : HireResponse
 
 }

@@ -29,6 +29,7 @@
                     android:id="@+id/iv_project"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/project"
                     android:scaleType="centerCrop"

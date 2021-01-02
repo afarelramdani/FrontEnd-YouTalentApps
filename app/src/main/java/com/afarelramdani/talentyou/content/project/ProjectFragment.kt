@@ -1,5 +1,6 @@
 package com.afarelramdani.talentyou.content.project
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -80,6 +81,8 @@ class ProjectFragment : BaseFragment<FragmentProjectBinding>(), View.OnClickList
         when(v?.id) {
             R.id.btn_add_project -> {
                 Toast.makeText(requireContext(), "TES", Toast.LENGTH_SHORT).show()
+                val AddProject = Intent(activity, AddProjectActivity::class.java)
+                requireActivity().startActivity(AddProject)
             }
         }
     }

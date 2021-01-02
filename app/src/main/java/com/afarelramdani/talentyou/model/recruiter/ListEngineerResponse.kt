@@ -2,7 +2,7 @@ package com.afarelramdani.talentyou.model.recruiter
 
 import com.google.gson.annotations.SerializedName
 
-data class ListEngineerResponse (val succes: Boolean, val message: String, val data: List<Engineer>) {
+data class ListEngineerResponse (val success: Boolean, val message: String, val data: List<Engineer>) {
         data class Engineer(@SerializedName("en_id") val engineerId: Int?,
                            @SerializedName("ac_id") val accountId: Int?,
                            @SerializedName("en_job_tittle") val engineerJobTittle: String?,
