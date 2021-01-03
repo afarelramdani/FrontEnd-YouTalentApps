@@ -51,7 +51,6 @@ class ProjectFragment : BaseFragment<FragmentProjectBinding>(), View.OnClickList
                 Log.d("android hans", "CallApi: ${Thread.currentThread().name}")
                 var sharePref = context?.let { SharedPreferences(it) }
 
-                println(sharePref!!.getCompanyId().toString())
                 try {
                     service?.getProjectById(sharePref!!.getCompanyId())
                 } catch (e: Throwable) {

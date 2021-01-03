@@ -72,8 +72,7 @@ class LoginTalentActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnC
                 try {
                     service.loginAccount(email, password)
                 } catch (t: Throwable) {
-                    Log.e("msg", "${t.message}")
-                    println("Data Tidak Ada")
+                    Log.e("Connetion Message", "${t.message}")
                 }
             }
 
@@ -81,6 +80,7 @@ class LoginTalentActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnC
                 if (response.success) {
                     Log.d("android hans", response.toString())
                     var response = response.data
+                    sharePref.Remember(true)
                     sharePref.createAccountUser(response.acId, response.acName, response.acEmail, response.acLevel, response.token)
                     baseStartActivity<HomeActivity>(this@LoginTalentActivity)
                     finish()

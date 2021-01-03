@@ -4,9 +4,12 @@ import com.afarelramdani.talentyou.model.dataengineer.DataEngineerRepsonse
 import com.afarelramdani.talentyou.model.datarecruiter.DataRecruiterResponse
 import com.afarelramdani.talentyou.model.hire.HireResponse
 import com.afarelramdani.talentyou.model.login.LoginResponse
+import com.afarelramdani.talentyou.model.project.AddProjectResponse
 import com.afarelramdani.talentyou.model.project.ProjectResponse
 import com.afarelramdani.talentyou.model.recruiter.ListEngineerResponse
 import com.afarelramdani.talentyou.model.register.RegisterTalentResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface  ApiService {
@@ -45,7 +48,11 @@ interface  ApiService {
     @Multipart
     @POST( "hireApp/project/createProject")
     suspend fun addProject(
-    ): RegisterTalentResponse
+        @Part("cnId") companyId: RequestBody,
+        @Part("pjName") projectName: RequestBody,
+        @Part("pjDesc") projectDesc: RequestBody,
+        @Part("pjDeadline") projectDeadline: RequestBody,
+    ): AddProjectResponse
 
     @FormUrlEncoded
     @POST("hireApp/hire/createHire")
@@ -57,4 +64,6 @@ interface  ApiService {
         @Field("hrStatus") hireStatus: String
     ) : HireResponse
 
+    @GET("hireApp/hireByEngineer/{enId}")
+    suspend fun getHireByEngineerId(@Path("enId") engineerId: Int) : HireResponse
 }

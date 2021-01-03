@@ -12,6 +12,7 @@ import com.afarelramdani.talentyou.databinding.FragmentProfileTalentBinding
 
 import com.afarelramdani.talentyou.util.SharedPreferences
 import com.afarelramdani.talentyou.content.webview.WebViewActivity
+import com.bumptech.glide.Glide
 
 class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.OnClickListener {
     private lateinit var pageAdapter: ProfileTalentAdapter
@@ -31,6 +32,18 @@ class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.
         var sharePref = context?.let { SharedPreferences(it) }
         var email = sharePref!!.getAccountEmail()
         binding.tvEmailProfile.text = email
+
+        var name = sharePref!!.getAccountName()
+        binding.tvNameTalentProfile.text = name
+
+        var image = sharePref.getImageProfile()
+        var img = "http://3.80.117.134:2000/image/$image"
+
+        Glide.with(binding.ivPictureTalentProfile)
+            .load(img)
+            .placeholder(R.drawable.defaultimage)
+            .error(R.drawable.defaultimage)
+            .into(binding.ivPictureTalentProfile)
 
 
         binding.viewPager.adapter = pageAdapter

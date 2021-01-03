@@ -39,7 +39,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_"
+                            android:id="@+id/tv_project_name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawablePadding="8dp"
@@ -54,6 +54,7 @@
                         android:layout_marginTop="8dp">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/project_desc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawablePadding="8dp"
@@ -69,6 +70,7 @@
                         android:layout_marginTop="8dp">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/project_deadline"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/white"

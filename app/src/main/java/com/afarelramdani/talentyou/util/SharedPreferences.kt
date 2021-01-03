@@ -20,6 +20,7 @@ class SharedPreferences(private val context: Context) {
        private val ENGINEER_EMAIL = "ENGINEER EMAIL"
        private val JOB_TITTLE = "ENGINEER EMAIL"
        private val PROJECT_ID = "PROJECT ID"
+       private val IMAGE_PROFILE = "IMAGE PROFILE"
 
    }
 
@@ -71,14 +72,20 @@ class SharedPreferences(private val context: Context) {
 
 
 
-    fun setCompanyId(cnId: Int) {
+    fun setCompanyData(cnId: Int, image: String) {
         edit.putInt(CN_ID, cnId)
+        edit.putString(IMAGE_PROFILE, image)
         edit.commit()
     }
 
     fun getCompanyId(): Int {
         var companyId = sharedPreferences.getInt(CN_ID, 0)!!
         return companyId
+    }
+
+    fun getImageProfile(): String {
+        var ImageProfile = sharedPreferences.getString(IMAGE_PROFILE, "NOT SET")!!
+        return ImageProfile
     }
 
 
@@ -113,8 +120,8 @@ class SharedPreferences(private val context: Context) {
         return isLogin
     }
 
-    fun Remember(checked: Boolean) {
-        edit.putBoolean(KEY_LOGIN, checked)
+    fun Remember(login: Boolean) {
+        edit.putBoolean(KEY_LOGIN, login)
         edit.commit()
     }
 

@@ -7,5 +7,5 @@ data class DataEngineerRepsonse (val success: Boolean, val message: String, val 
     @SerializedName("ac_id") val accountId: String,
     @SerializedName("ac_name") val accountName: String,
     @SerializedName("ac_email") val accountEmail: String,
-    @SerializedName("en_id") val engineerId: String)
+    @SerializedName("en_id") val engineerId: Int)
 }
