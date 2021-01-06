@@ -3,6 +3,7 @@ package com.afarelramdani.talentyou.util
 import com.afarelramdani.talentyou.model.dataengineer.DataEngineerRepsonse
 import com.afarelramdani.talentyou.model.datarecruiter.DataRecruiterResponse
 import com.afarelramdani.talentyou.model.hire.HireResponse
+import com.afarelramdani.talentyou.model.hire.UpdateHireResponse
 import com.afarelramdani.talentyou.model.login.LoginResponse
 import com.afarelramdani.talentyou.model.project.AddProjectResponse
 import com.afarelramdani.talentyou.model.project.ProjectResponse
@@ -33,6 +34,20 @@ interface  ApiService {
       @Field("acLevel") accountLevel: Int,
     ): RegisterTalentResponse
 
+    @FormUrlEncoded
+    @POST( "hireApp/account/createAccount")
+    suspend fun registerRecruiter(
+        @Field("acName") name: String,
+        @Field("acNoHp") noHp: String,
+        @Field("acEmail") email: String,
+        @Field("acPassword") password: String,
+        @Field("cnName") companyName: String,
+        @Field("cnPosition") companyPosition: String,
+        @Field("acLevel") accountLevel: Int
+
+
+    ): RegisterTalentResponse
+
     @GET("hireApp/engineer")
     suspend fun getAllEngineer(): ListEngineerResponse
 
@@ -51,7 +66,7 @@ interface  ApiService {
         @Part("cnId") companyId: RequestBody,
         @Part("pjName") projectName: RequestBody,
         @Part("pjDesc") projectDesc: RequestBody,
-        @Part("pjDeadline") projectDeadline: RequestBody,
+        @Part("pjDeadline") projectDeadline: RequestBody
     ): AddProjectResponse
 
     @FormUrlEncoded
@@ -66,4 +81,12 @@ interface  ApiService {
 
     @GET("hireApp/hireByEngineer/{enId}")
     suspend fun getHireByEngineerId(@Path("enId") engineerId: Int) : HireResponse
+
+    @PUT("/hireApp/hire/status/{id}")
+    @FormUrlEncoded
+    suspend fun updateHireStatus(
+        @Path("id") id: String,
+        @Field("hrStatus") hrStatus: String
+    ): UpdateHireResponse
+
 }

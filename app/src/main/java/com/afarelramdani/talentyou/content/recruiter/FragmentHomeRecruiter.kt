@@ -74,7 +74,6 @@ class FragmentHomeRecruiter: BaseFragment<FragmentHomeRecruiterBinding>(), ListE
     }
 
     override fun onEngineerItem(position: Int) {
-        Toast.makeText(requireContext(), "${listEngineer[position].accountName} clicked", Toast.LENGTH_SHORT).show()
         val intent = Intent(requireContext(), DetailEngineerActivity::class.java)
         var sharePref = context?.let { SharedPreferences(it) }
         sharePref?.setEnginnerId(listEngineer[position].engineerId!!)

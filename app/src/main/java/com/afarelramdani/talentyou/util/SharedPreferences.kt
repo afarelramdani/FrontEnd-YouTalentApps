@@ -15,10 +15,11 @@ class SharedPreferences(private val context: Context) {
        private val AC_LEVEL = "LEVEL"
        private val AC_ID= "ACCOUNT ID COMPANY"
        private val CN_ID = "COMPANY ID"
+       private val EN_ID = "ENGINEER ID"
        private val DETAIL_EN_ID = "ENGINEER ID"
        private val ENGINEER_NAME = "ENGINEER NAME"
        private val ENGINEER_EMAIL = "ENGINEER EMAIL"
-       private val JOB_TITTLE = "ENGINEER EMAIL"
+       private val JOB_TITLE = "JOB_TITTLE"
        private val PROJECT_ID = "PROJECT ID"
        private val IMAGE_PROFILE = "IMAGE PROFILE"
 
@@ -65,16 +66,23 @@ class SharedPreferences(private val context: Context) {
         return engineerName
     }
 
-    fun getJobType(): String {
-        var jobType = sharedPreferences.getString(JOB_TITTLE, "Not Set")!!
-        return jobType
+    fun getJobTitle(): String {
+        var jobTitle = sharedPreferences.getString(JOB_TITLE, "Not Set")!!
+        return jobTitle
     }
 
 
 
-    fun setCompanyData(cnId: Int, image: String) {
+    fun setCompanyData(cnId: Int, image: String?) {
         edit.putInt(CN_ID, cnId)
         edit.putString(IMAGE_PROFILE, image)
+        edit.commit()
+    }
+
+    fun setEngineerData(enId: Int, image: String?, jobTitle: String?) {
+        edit.putInt(EN_ID, enId)
+        edit.putString(IMAGE_PROFILE, image)
+        edit.putString(JOB_TITLE, jobTitle)
         edit.commit()
     }
 

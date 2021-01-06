@@ -54,7 +54,7 @@ class RegisterTalentActivity : BaseActivity<ActivityRegisterTalentBinding>() {
                         noHp = binding.etNohpRegister.text.toString(),
                         email = binding.etEmailRegister.text.toString(),
                         password = binding.etPasswordRegister.text.toString(),
-                        accountLevel = 0
+                        accountLevel = 1
 
                     )
                 } catch (t: Throwable) {
@@ -64,7 +64,7 @@ class RegisterTalentActivity : BaseActivity<ActivityRegisterTalentBinding>() {
             }
 
             if (response is RegisterTalentResponse) {
-                if(response?.succes) {
+                if(response?.success) {
                     baseStartActivity<LoginTalentActivity>(this@RegisterTalentActivity)
                 } else {
 

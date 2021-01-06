@@ -38,32 +38,34 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
             return;
         }
 
-
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
-
-        if(sharePref.getAccountLevel() == 1) {
-            getEngineerByAccountId()
-        } else {
-            getCompanyByAccountId()
-        }
 
 
         val fragmentHomeTalent = FragmentHomeTalent()
         val fragmentHomeRecruiter = FragmentHomeRecruiter()
 
+
         if (sharePref.getAccountLevel() == 1) {
+            getEngineerByAccountId()
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container_talent,
                 fragmentHomeTalent
             ).commit()
             binding.tvToolbar.setText("Home")
         } else if(sharePref.getAccountLevel() == 0) {
+
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container_talent,
                 fragmentHomeRecruiter
             ).commit()
             binding.tvToolbar.setText("Home")
+        }
+
+        if(sharePref.getAccountLevel() == 1) {
+            getEngineerByAccountId()
+        } else {
+            getCompanyByAccountId()
         }
 
 
@@ -97,7 +99,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                             R.id.fragment_container_talent,
                             fragmentHireTalent
                         ).commit()
-                        binding.tvToolbar.setText("Profile")
+                        binding.tvToolbar.setText("List Hire")
 
                     } else if (sharePref.getAccountLevel() == 0) {
                         val fragmentProject = ProjectFragment()
@@ -105,7 +107,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                             R.id.fragment_container_talent,
                             fragmentProject
                         ).commit()
-                        binding.tvToolbar.setText("Profile")
+                        binding.tvToolbar.setText("List Project")
                     }
                     true
                 }
@@ -181,7 +183,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
 
             if (response is DataEngineerRepsonse) {
                 Log.d("Data Engineer", response.toString())
-                sharePref.setEnginnerId(response.data.engineerId)
+                sharePref.setEngineerData(response.data.engineerId, response.data.engineerPhoto, response.data.engineerJobTitle )
                 }
 
 

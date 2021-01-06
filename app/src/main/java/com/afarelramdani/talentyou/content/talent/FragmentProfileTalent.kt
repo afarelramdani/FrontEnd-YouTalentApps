@@ -36,14 +36,36 @@ class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.
         var name = sharePref!!.getAccountName()
         binding.tvNameTalentProfile.text = name
 
-        var image = sharePref.getImageProfile()
-        var img = "http://3.80.117.134:2000/image/$image"
+        if (sharePref.getImageProfile() != null) {
+            var image = sharePref.getImageProfile()
+            var img = "http://3.80.117.134:2000/image/$image"
 
-        Glide.with(binding.ivPictureTalentProfile)
-            .load(img)
-            .placeholder(R.drawable.defaultimage)
-            .error(R.drawable.defaultimage)
-            .into(binding.ivPictureTalentProfile)
+            Glide.with(binding.ivPictureTalentProfile)
+                .load(img)
+                .placeholder(R.drawable.defaultimage)
+                .error(R.drawable.defaultimage)
+                .into(binding.ivPictureTalentProfile)
+        } else {
+            var img = R.drawable.defaultimage
+            Glide.with(binding.ivPictureTalentProfile)
+                .load(img)
+                .placeholder(R.drawable.defaultimage)
+                .error(R.drawable.defaultimage)
+                .into(binding.ivPictureTalentProfile)
+        }
+0
+
+        if(sharePref.getJobTitle() != null ) {
+            var jobTitle = sharePref.getJobTitle()
+            binding.tvJobTitle.text = jobTitle
+        } else {
+            binding.tvJobTitle.text = ""
+        }
+
+
+
+
+
 
 
         binding.viewPager.adapter = pageAdapter

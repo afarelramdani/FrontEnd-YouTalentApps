@@ -11,6 +11,7 @@ import com.afarelramdani.talentyou.BaseFragment
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.FragmentHomeTalentBinding
 import com.afarelramdani.talentyou.util.SharedPreferences
+import com.bumptech.glide.Glide
 
 class FragmentHomeTalent: BaseFragment<FragmentHomeTalentBinding>() {
     override fun onCreateView(
@@ -21,7 +22,12 @@ class FragmentHomeTalent: BaseFragment<FragmentHomeTalentBinding>() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_talent, container, false)
         var sharePref = context?.let { SharedPreferences(it) }
         var name = sharePref!!.getAccountName()
-        binding.textViewName.text = name
+
+
+        var image = sharePref.getImageProfile()
+        var img = "http://3.80.117.134:2000/image/$image"
+
+        binding.tvNameTalent.text = name
         return binding.root
     }
 

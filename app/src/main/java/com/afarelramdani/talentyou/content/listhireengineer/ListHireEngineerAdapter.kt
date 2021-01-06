@@ -27,17 +27,27 @@ class ListEngineerAdapter(private val listEngineer : ArrayList<ListEngineerModel
 
     override fun onBindViewHolder(holder: ListEngineerViewHolder, position: Int) {
         val item = listEngineer[position]
-        val img = "http://3.80.117.134:2000/image/${item.engineerProfilePict}"
+
+        if (item.engineerProfilePict != null) {
+            val img = "http://3.80.117.134:2000/image/${item.engineerProfilePict}"
+            Glide.with(holder.itemView)
+                .load(img)
+                .placeholder(R.drawable.defaultimage)
+                .error(R.drawable.defaultimage)
+                .into(holder.binding.ivTalent)
+        } else {
+            val img = R.drawable.defaultimage
+            Glide.with(holder.itemView)
+                .load(img)
+                .placeholder(R.drawable.defaultimage)
+                .error(R.drawable.defaultimage)
+                .into(holder.binding.ivTalent)
+        }
+
 
         holder.binding.tvNameTalent.text = item.accountName
         holder.binding.tvJobTittle.text = item.engineerJobTitle
-        holder.binding.tvNameTalent.text = item.accountName
 
-        Glide.with(holder.itemView)
-            .load(img)
-            .placeholder(R.drawable.defaultimage)
-            .error(R.drawable.defaultimage)
-            .into(holder.binding.ivTalent)
 
         holder.itemView.setOnClickListener {
             onListEngineerClickListener.onEngineerItem(position)

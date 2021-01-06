@@ -45,8 +45,8 @@ class DetailEngineerActivity : BaseActivity<ActivityDetailEngineerBinding>(), Vi
 
         Glide.with(binding.ivPictureTalentProfile)
             .load(img)
-            .placeholder(R.drawable.dalmiku)
-            .error(R.drawable.dalmiku)
+            .placeholder(R.drawable.defaultimage)
+            .error(R.drawable.defaultimage)
             .into(binding.ivPictureTalentProfile)
     }
 

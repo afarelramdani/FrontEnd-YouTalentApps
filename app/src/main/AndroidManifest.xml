@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -17,7 +19,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".content.hire.AddHireActivity"></activity>
+        <activity android:name=".content.register.OnBoardRegisterActivity"></activity>
+        <activity android:name=".content.hire.AddHireActivity" />
         <activity android:name=".content.listhireengineer.DetailEngineerActivity" />
         <activity android:name=".content.project.AddProjectActivity" />
         <activity android:name=".content.webview.WebViewActivity" />

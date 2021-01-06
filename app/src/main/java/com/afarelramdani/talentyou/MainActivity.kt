@@ -32,11 +32,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btn_to_recruiter_login -> {
-                baseStartActivity<LoginRecruiterActivity>(this)
+                baseStartActivity<LoginTalentActivity>(this)
             }
             R.id.btn_to_talent_login -> {
-                val moveToRecruiterLogin = Intent(this@MainActivity, LoginTalentActivity::class.java)
-                startActivity(moveToRecruiterLogin)
+                baseStartActivity<LoginTalentActivity>(this)
             }
 
 

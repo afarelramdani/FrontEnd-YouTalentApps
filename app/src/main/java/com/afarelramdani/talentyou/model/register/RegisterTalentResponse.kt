@@ -2,7 +2,7 @@ package com.afarelramdani.talentyou.model.register
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterTalentResponse (val succes: Boolean, val message: String, val data: Data ) {
+data class RegisterTalentResponse (val success: Boolean, val message: String, val data: Data ) {
     data class Data(
                        @SerializedName("id") val id: String,
                        @SerializedName("ac_name") val accountName: String,

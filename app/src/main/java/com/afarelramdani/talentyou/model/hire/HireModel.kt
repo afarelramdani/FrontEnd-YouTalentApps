@@ -8,4 +8,9 @@ data class HireModel(
     val hireMessage: String?,
     val hireStatus: String?,
     val hireDateConfirm: String?,
-    val hireCreated: String?)
+    val hireCreated: String?,
+    val hireProjectImage: String?,
+    val projectName: String?,
+    val projectDeadline: String?
+
+    )

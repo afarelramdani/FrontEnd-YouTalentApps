@@ -45,8 +45,8 @@ class ProjectListAdapter: RecyclerView.Adapter<ProjectListAdapter.ProjectHolder>
 
         Glide.with(holder.itemView)
             .load(img)
-            .placeholder(R.drawable.dalmiku)
-            .error(R.drawable.dalmiku)
+            .placeholder(R.drawable.projectdefault)
+            .error(R.drawable.projectdefault)
             .into(holder.binding.ivProject)
 
     }

@@ -1,3 +1,3 @@
 package com.afarelramdani.talentyou.model.project
 
-class AddProjectResponse (val success: Boolean, val message: String)
+data class AddProjectResponse (val success: Boolean, val message: String)

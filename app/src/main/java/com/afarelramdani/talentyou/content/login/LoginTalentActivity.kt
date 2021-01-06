@@ -9,6 +9,7 @@ import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.ActivityLoginTalentBinding
 import com.afarelramdani.talentyou.content.home.HomeActivity
+import com.afarelramdani.talentyou.content.register.OnBoardRegisterActivity
 import com.afarelramdani.talentyou.model.login.LoginResponse
 import com.afarelramdani.talentyou.content.register.RegisterTalentActivity
 import com.afarelramdani.talentyou.remote.ApiClient
@@ -37,8 +38,7 @@ class LoginTalentActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnC
 
         when (v?.id) {
             R.id.tv_gotoregister_talent_login -> {
-                val moveIntent = Intent(this, RegisterTalentActivity::class.java)
-                startActivity(moveIntent)
+                baseStartActivity<OnBoardRegisterActivity>(this)
             }
 
             R.id.btn_login_talent -> {
@@ -57,8 +57,7 @@ class LoginTalentActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnC
             }
 
             R.id.tv_forget_password_talent -> {
-                val moveForgetPassword = Intent(this, ForgetPasswordActivity::class.java)
-                startActivity(moveForgetPassword)
+                baseStartActivity<ForgetPasswordActivity>(this)
             }
 
         }
