@@ -4,12 +4,11 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.ListHireBinding
-import com.afarelramdani.talentyou.model.hire.HireModel
+import com.afarelramdani.talentyou.content.hire.HireModel
 import com.bumptech.glide.Glide
 
 class HireListAdapter(private val listHire: ArrayList<HireModel>, private val onListHireClickListener: clickOnListHireListener): RecyclerView.Adapter<HireListAdapter.HireHolder>() {

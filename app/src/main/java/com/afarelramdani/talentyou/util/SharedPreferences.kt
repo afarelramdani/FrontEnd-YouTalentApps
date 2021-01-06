@@ -3,6 +3,7 @@ package com.afarelramdani.talentyou.util
 import android.content.Context
 import android.content.SharedPreferences
 import android.provider.Settings.Global.getString
+import kotlinx.coroutines.CoroutineScope
 
 class SharedPreferences(private val context: Context) {
    companion object {

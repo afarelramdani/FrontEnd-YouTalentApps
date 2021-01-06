@@ -1,7 +1,6 @@
 package com.afarelramdani.talentyou.content.hire
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -11,9 +10,8 @@ import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.content.home.HomeActivity
 import com.afarelramdani.talentyou.databinding.ActivityAddHireBinding
-import com.afarelramdani.talentyou.model.hire.HireResponse
-import com.afarelramdani.talentyou.model.project.ProjectModel
-import com.afarelramdani.talentyou.model.project.ProjectResponse
+import com.afarelramdani.talentyou.content.projectrecruiter.ProjectModel
+import com.afarelramdani.talentyou.content.projectrecruiter.ProjectResponse
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
 import kotlinx.coroutines.*

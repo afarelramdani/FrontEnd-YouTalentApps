@@ -11,18 +11,15 @@ import android.view.MenuItem
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.MainActivity
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.content.project.ProjectFragment
+import com.afarelramdani.talentyou.content.projectrecruiter.ProjectFragment
 import com.afarelramdani.talentyou.content.recruiter.FragmentHomeRecruiter
 import com.afarelramdani.talentyou.content.recruiter.FragmentProfileRecruiter
 import com.afarelramdani.talentyou.content.talent.FragmentHireTalent
 import com.afarelramdani.talentyou.content.talent.FragmentHomeTalent
 import com.afarelramdani.talentyou.content.talent.FragmentProfileTalent
 import com.afarelramdani.talentyou.databinding.ActivityHomeTalentBinding
-import com.afarelramdani.talentyou.model.dataengineer.DataEngineerRepsonse
-import com.afarelramdani.talentyou.model.datarecruiter.DataRecruiterResponse
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
-import kotlinx.android.synthetic.main.activity_add_hire.*
 import kotlinx.coroutines.*
 
 
@@ -49,14 +46,14 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
         if (sharePref.getAccountLevel() == 1) {
             getEngineerByAccountId()
             supportFragmentManager.beginTransaction().replace(
-                R.id.fragment_container_talent,
+                R.id.fragment_container,
                 fragmentHomeTalent
             ).commit()
             binding.tvToolbar.setText("Home")
         } else if(sharePref.getAccountLevel() == 0) {
 
             supportFragmentManager.beginTransaction().replace(
-                R.id.fragment_container_talent,
+                R.id.fragment_container,
                 fragmentHomeRecruiter
             ).commit()
             binding.tvToolbar.setText("Home")
@@ -75,14 +72,14 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
 
                     if (sharePref.getAccountLevel() == 1) {
                         supportFragmentManager.beginTransaction().replace(
-                            R.id.fragment_container_talent,
+                            R.id.fragment_container,
                             fragmentHomeTalent
                         ).commit()
                         binding.tvToolbar.setText("Home")
                         true
                     } else if (sharePref.getAccountLevel() == 0) {
                         supportFragmentManager.beginTransaction().replace(
-                            R.id.fragment_container_talent,
+                            R.id.fragment_container,
                             fragmentHomeRecruiter
                         ).commit()
                         binding.tvToolbar.setText("Home")
@@ -96,7 +93,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                     if (sharePref.getAccountLevel() == 1) {
                         val fragmentHireTalent = FragmentHireTalent()
                         supportFragmentManager.beginTransaction().replace(
-                            R.id.fragment_container_talent,
+                            R.id.fragment_container,
                             fragmentHireTalent
                         ).commit()
                         binding.tvToolbar.setText("List Hire")
@@ -104,7 +101,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                     } else if (sharePref.getAccountLevel() == 0) {
                         val fragmentProject = ProjectFragment()
                         supportFragmentManager.beginTransaction().replace(
-                            R.id.fragment_container_talent,
+                            R.id.fragment_container,
                             fragmentProject
                         ).commit()
                         binding.tvToolbar.setText("List Project")
@@ -117,7 +114,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                     if (sharePref.getAccountLevel() == 1) {
                         val fragmentProfileTalent = FragmentProfileTalent()
                         supportFragmentManager.beginTransaction().replace(
-                            R.id.fragment_container_talent,
+                            R.id.fragment_container,
                             fragmentProfileTalent
                         ).commit()
                         binding.tvToolbar.setText("Profile")
@@ -125,7 +122,7 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                     } else if (sharePref.getAccountLevel() == 0) {
                         val fragmentProfileRecruiter = FragmentProfileRecruiter()
                         supportFragmentManager.beginTransaction().replace(
-                            R.id.fragment_container_talent,
+                            R.id.fragment_container,
                             fragmentProfileRecruiter
                         ).commit()
                         binding.tvToolbar.setText("Profile")

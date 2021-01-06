@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.afarelramdani.talentyou.BaseFragment
 import com.afarelramdani.talentyou.R
+import com.afarelramdani.talentyou.content.talent.edittalent.FragmentEditProfileTalent
 import com.afarelramdani.talentyou.databinding.FragmentProfileTalentBinding
 
 import com.afarelramdani.talentyou.util.SharedPreferences
@@ -63,11 +64,6 @@ class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.
         }
 
 
-
-
-
-
-
         binding.viewPager.adapter = pageAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
 
@@ -84,7 +80,7 @@ class FragmentProfileTalent: BaseFragment<FragmentProfileTalentBinding>(), View.
             R.id.btn_edit_hire_talent -> {
                 val fragmentProfileTalent = FragmentEditProfileTalent()
                 fragmentManager?.beginTransaction()
-                    ?.replace(R.id.fragment_container_talent,  fragmentProfileTalent)
+                    ?.replace(R.id.fragment_container,  fragmentProfileTalent)
                     ?.commit()
             }
         }

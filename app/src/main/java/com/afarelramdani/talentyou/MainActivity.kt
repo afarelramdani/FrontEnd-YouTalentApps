@@ -1,13 +1,11 @@
 package com.afarelramdani.talentyou
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import com.afarelramdani.talentyou.databinding.ActivityMainBinding
 import com.afarelramdani.talentyou.content.home.HomeActivity
-import com.afarelramdani.talentyou.content.login.LoginRecruiterActivity
-import com.afarelramdani.talentyou.content.login.LoginTalentActivity
+import com.afarelramdani.talentyou.content.login.LoginActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
     var isRemembered = false
@@ -32,10 +30,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btn_to_recruiter_login -> {
-                baseStartActivity<LoginTalentActivity>(this)
+                baseStartActivity<LoginActivity>(this)
             }
             R.id.btn_to_talent_login -> {
-                baseStartActivity<LoginTalentActivity>(this)
+                baseStartActivity<LoginActivity>(this)
             }
 
 

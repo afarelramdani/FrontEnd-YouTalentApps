@@ -6,17 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.afarelramdani.talentyou.BaseFragment
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.content.listhireengineer.DetailEngineerActivity
+import com.afarelramdani.talentyou.content.talent.DetailTalentActivity
 import com.afarelramdani.talentyou.content.listhireengineer.ListEngineerAdapter
 import com.afarelramdani.talentyou.databinding.FragmentHomeRecruiterBinding
-import com.afarelramdani.talentyou.model.recruiter.ListEngineerModel
-import com.afarelramdani.talentyou.model.recruiter.ListEngineerResponse
+import com.afarelramdani.talentyou.content.recruiter.listengineer.ListEngineerModel
+import com.afarelramdani.talentyou.content.recruiter.listengineer.ListEngineerResponse
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
 import com.afarelramdani.talentyou.util.SharedPreferences
@@ -74,7 +73,7 @@ class FragmentHomeRecruiter: BaseFragment<FragmentHomeRecruiterBinding>(), ListE
     }
 
     override fun onEngineerItem(position: Int) {
-        val intent = Intent(requireContext(), DetailEngineerActivity::class.java)
+        val intent = Intent(requireContext(), DetailTalentActivity::class.java)
         var sharePref = context?.let { SharedPreferences(it) }
         sharePref?.setEnginnerId(listEngineer[position].engineerId!!)
         intent.putExtra("name", listEngineer[position].accountName)

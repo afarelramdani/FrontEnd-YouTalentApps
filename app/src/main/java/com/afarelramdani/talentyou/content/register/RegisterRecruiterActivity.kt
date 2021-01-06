@@ -1,14 +1,12 @@
 package com.afarelramdani.talentyou.content.register
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
-import com.afarelramdani.talentyou.content.login.LoginTalentActivity
+import com.afarelramdani.talentyou.content.login.LoginActivity
 import com.afarelramdani.talentyou.databinding.ActivityRegisterRecruiterBinding
-import com.afarelramdani.talentyou.model.register.RegisterTalentResponse
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
 import kotlinx.coroutines.*
@@ -63,9 +61,9 @@ class RegisterRecruiterActivity : BaseActivity<ActivityRegisterRecruiterBinding>
                 }
             }
 
-            if (response is RegisterTalentResponse) {
+            if (response is RegisterResponse) {
                 if(response?.success) {
-                    baseStartActivity<LoginTalentActivity>(this@RegisterRecruiterActivity)
+                    baseStartActivity<LoginActivity>(this@RegisterRecruiterActivity)
                 } else {
 
                 }

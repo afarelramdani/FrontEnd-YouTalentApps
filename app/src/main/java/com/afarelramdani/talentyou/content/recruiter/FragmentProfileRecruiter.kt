@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.afarelramdani.talentyou.BaseFragment
 import com.afarelramdani.talentyou.R
+import com.afarelramdani.talentyou.content.recruiter.editrecruiter.FragmentEditProfileRecruiter
 import com.afarelramdani.talentyou.databinding.FragmentProfileRecruiterBinding
 import com.afarelramdani.talentyou.util.SharedPreferences
 import com.bumptech.glide.Glide
 
 
 class FragmentProfileRecruiter: BaseFragment<FragmentProfileRecruiterBinding>(), View.OnClickListener {
-    private lateinit var pageAdapter: ProfileRecruiterAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,10 +21,6 @@ class FragmentProfileRecruiter: BaseFragment<FragmentProfileRecruiterBinding>(),
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile_recruiter, container, false)
-        pageAdapter = ProfileRecruiterAdapter(childFragmentManager)
-        binding.viewPager.adapter = pageAdapter
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
-
         var sharePref = context?.let { SharedPreferences(it) }
         var email = sharePref!!.getAccountEmail()
         binding.tvEmailProfile.text = email
@@ -49,7 +45,7 @@ class FragmentProfileRecruiter: BaseFragment<FragmentProfileRecruiterBinding>(),
             R.id.btn_edit_profile_recruiter -> {
                 val fragmentProfileRecruiter = FragmentEditProfileRecruiter()
                 fragmentManager?.beginTransaction()
-                    ?.replace(R.id.fragment_container_company,  fragmentProfileRecruiter)
+                    ?.replace(R.id.fragment_container,  fragmentProfileRecruiter)
                     ?.commit()
             }
         }

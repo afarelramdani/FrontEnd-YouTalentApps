@@ -21,13 +21,13 @@
         tools:targetApi="m">
         <activity android:name=".content.register.OnBoardRegisterActivity"></activity>
         <activity android:name=".content.hire.AddHireActivity" />
-        <activity android:name=".content.listhireengineer.DetailEngineerActivity" />
-        <activity android:name=".content.project.AddProjectActivity" />
+        <activity android:name=".content.talent.DetailTalentActivity" />
+        <activity android:name="com.afarelramdani.talentyou.content.projectrecruiter.addproject.AddProjectActivity" />
         <activity android:name=".content.webview.WebViewActivity" />
         <activity android:name=".content.home.HomeActivity" />
         <activity android:name=".content.login.ForgetPasswordActivity" />
         <activity android:name=".content.login.ForgetPasswordConfirmationActivity" />
-        <activity android:name=".content.recruiter.EditRecruiterActivity" />
+        <activity android:name=".content.recruiter.editrecruiter.EditRecruiterActivity" />
         <activity android:name=".content.inbox.InboxActivity" />
         <activity android:name=".content.search.SearchResultActivity" />
         <activity android:name=".content.search.SearchActivity" />
@@ -35,7 +35,7 @@
         <activity android:name=".content.register.RegisterTalentActivity" />
         <activity android:name=".content.home.HomeRecruiterActivity" />
         <activity android:name=".content.login.LoginRecruiterActivity" />
-        <activity android:name=".content.login.LoginTalentActivity" />
+        <activity android:name=".content.login.LoginActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">

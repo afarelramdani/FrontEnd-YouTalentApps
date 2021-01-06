@@ -6,8 +6,7 @@ import android.widget.Toast
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.ActivityRegisterTalentBinding
-import com.afarelramdani.talentyou.content.login.LoginTalentActivity
-import com.afarelramdani.talentyou.model.register.RegisterTalentResponse
+import com.afarelramdani.talentyou.content.login.LoginActivity
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
 import kotlinx.android.synthetic.main.activity_login_talent.*
@@ -63,9 +62,9 @@ class RegisterTalentActivity : BaseActivity<ActivityRegisterTalentBinding>() {
                 }
             }
 
-            if (response is RegisterTalentResponse) {
+            if (response is RegisterResponse) {
                 if(response?.success) {
-                    baseStartActivity<LoginTalentActivity>(this@RegisterTalentActivity)
+                    baseStartActivity<LoginActivity>(this@RegisterTalentActivity)
                 } else {
 
                 }

@@ -1,20 +1,19 @@
 package com.afarelramdani.talentyou.util
 
-import com.afarelramdani.talentyou.model.dataengineer.DataEngineerRepsonse
-import com.afarelramdani.talentyou.model.datarecruiter.DataRecruiterResponse
-import com.afarelramdani.talentyou.model.hire.HireResponse
-import com.afarelramdani.talentyou.model.hire.UpdateHireResponse
-import com.afarelramdani.talentyou.model.login.LoginResponse
-import com.afarelramdani.talentyou.model.project.AddProjectResponse
-import com.afarelramdani.talentyou.model.project.ProjectResponse
-import com.afarelramdani.talentyou.model.recruiter.ListEngineerResponse
-import com.afarelramdani.talentyou.model.register.RegisterTalentResponse
-import okhttp3.MultipartBody
+import com.afarelramdani.talentyou.content.home.DataEngineerRepsonse
+import com.afarelramdani.talentyou.content.home.DataRecruiterResponse
+import com.afarelramdani.talentyou.content.hire.HireResponse
+import com.afarelramdani.talentyou.content.talent.UpdateHireResponse
+import com.afarelramdani.talentyou.content.login.LoginResponse
+import com.afarelramdani.talentyou.content.projectrecruiter.addproject.AddProjectResponse
+import com.afarelramdani.talentyou.content.projectrecruiter.ProjectResponse
+import com.afarelramdani.talentyou.content.register.RegisterResponse
+import com.afarelramdani.talentyou.content.recruiter.listengineer.ListEngineerResponse
 import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface  ApiService {
-    var sharepref: SharedPreferences
+
 
 
     @FormUrlEncoded
@@ -32,7 +31,7 @@ interface  ApiService {
       @Field("acEmail") email: String,
       @Field("acPassword") password: String,
       @Field("acLevel") accountLevel: Int,
-    ): RegisterTalentResponse
+    ): RegisterResponse
 
     @FormUrlEncoded
     @POST( "hireApp/account/createAccount")
@@ -46,7 +45,7 @@ interface  ApiService {
         @Field("acLevel") accountLevel: Int
 
 
-    ): RegisterTalentResponse
+    ): RegisterResponse
 
     @GET("hireApp/engineer")
     suspend fun getAllEngineer(): ListEngineerResponse
