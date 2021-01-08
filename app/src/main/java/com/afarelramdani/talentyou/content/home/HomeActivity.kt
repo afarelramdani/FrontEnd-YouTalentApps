@@ -167,7 +167,6 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
     private fun getEngineerByAccountId() {
 
         coroutineScope.launch {
-            Log.d("android2", "Start: ${Thread.currentThread().name}")
             val response = withContext(Dispatchers.IO) {
                 Log.d("android2", "CallApi: ${Thread.currentThread().name}")
                 try {

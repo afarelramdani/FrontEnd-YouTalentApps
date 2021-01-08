@@ -47,7 +47,7 @@ class FragmentHireTalent: BaseFragment<FragmentHireTalentBinding>(), HireListAda
             val result = withContext(Dispatchers.IO) {
                 var sharePref = context?.let { SharedPreferences(it) }
                 try {
-                    service?.getHireByEngineerId(sharePref!!.getEngineerId())
+                    service?.getHireByEngineerId(sharePref!!.getDetailEngineerId())
                 } catch (e: Throwable) {
                     e.printStackTrace()
                 }

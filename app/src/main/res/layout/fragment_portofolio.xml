@@ -9,9 +9,28 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_list_recruiter"
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:background="#FFFF"
+                    android:orientation="vertical"
+                    app:cardCornerRadius="20dp">
+
+                        <Button
+                            android:id="@+id/btn_add_portofolio"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/radiusbuttonround"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+                            android:text="Add Portofolio"/>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list_portofolio"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="2dp"
                     android:layout_height="wrap_content"/>
 
 

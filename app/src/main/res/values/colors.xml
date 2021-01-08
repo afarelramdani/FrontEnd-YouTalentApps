@@ -9,5 +9,7 @@
     <color name="logo">#f37221</color>
     <color name="bottomBar">#FF3333</color>
     <color name="background">#EAE7E7</color>
+    <color name="backgroundCard">#EFEFEF</color>
+
 
 </resources>

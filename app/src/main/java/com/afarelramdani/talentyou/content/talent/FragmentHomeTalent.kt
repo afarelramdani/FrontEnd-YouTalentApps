@@ -23,10 +23,6 @@ class FragmentHomeTalent: BaseFragment<FragmentHomeTalentBinding>() {
         var sharePref = context?.let { SharedPreferences(it) }
         var name = sharePref!!.getAccountName()
 
-
-        var image = sharePref.getImageProfile()
-        var img = "http://3.80.117.134:2000/image/$image"
-
         binding.tvNameTalent.text = name
         return binding.root
     }

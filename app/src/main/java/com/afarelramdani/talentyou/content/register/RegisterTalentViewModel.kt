@@ -1,19 +1,18 @@
-package com.afarelramdani.talentyou.content.login
+package com.afarelramdani.talentyou.content.register
 
-import android.app.Activity
-import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.afarelramdani.talentyou.content.home.HomeActivity
+import com.afarelramdani.talentyou.content.login.LoginActivity
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
 import com.afarelramdani.talentyou.util.SharedPreferences
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class LoginViewModel: ViewModel(), CoroutineScope {
-    val isLoginLiveData = MutableLiveData<Boolean>()
+class RegisterTalentViewModel: ViewModel(), CoroutineScope {
+    val isRegisterLiveData = MutableLiveData<Boolean>()
     private lateinit var service: ApiService
     private lateinit var sharedPref: SharedPreferences
 
@@ -25,34 +24,36 @@ class LoginViewModel: ViewModel(), CoroutineScope {
         this.sharedPref = sharedPreferences
     }
 
-    fun setLoginService(service: ApiService) {
+    fun setRegisterService(service: ApiService) {
         this.service = service
     }
 
-    fun loginAccountTalent(email: String ,password: String) {
+    fun registerAccountTalent(name: String, email: String,  noHp: String, password: String, accountLevel: Int) {
         launch {
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service.loginAccount(email, password)
+                    service.registerTalent(
+                        name,
+                        email,
+                        noHp,
+                        password,
+                        accountLevel
+
+                    )
                 } catch (t: Throwable) {
                     t.printStackTrace()
                     withContext(Dispatchers.Main) {
-                        isLoginLiveData.value = false
+                        isRegisterLiveData.value = false
                     }
                 }
             }
 
-            if (response is LoginResponse) {
-                if (response?.success) {
-                    Log.d("android hans", response.toString())
-                    var response = response.data
-                    sharedPref.Remember(true)
-                    sharedPref.createAccountUser(response.acId, response.acName, response.acEmail, response.acLevel, response.token)
-                    isLoginLiveData.value = true
-                } else{
-                    isLoginLiveData.value = false
+            if (response is RegisterResponse) {
+                if(response?.success) {
+                    isRegisterLiveData.value = true
+                } else {
+                    isRegisterLiveData.value = false
                 }
-
 
             }
         }

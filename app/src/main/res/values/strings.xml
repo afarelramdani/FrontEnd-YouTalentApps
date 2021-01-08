@@ -26,6 +26,7 @@
     <string name="sen_21_arpil_2020">Sen, 21 Arpil 2020</string>
     <string name="recruiter">Recruiter</string>
     <string name="login">Login</string>
+    <string name="eror">Password Tidak Sama</string>
     <string name="password">Password</string>
     <string name="lupa_kata_sandi">Lupa Kata Sandi ?</string>
     <string name="perusahaan">Perusahaan</string>

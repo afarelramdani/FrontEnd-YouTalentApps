@@ -128,121 +128,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="30dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="48dp"
                         android:layout_marginRight="30dp"
+                        android:layout_marginBottom="30dp"
                         android:background="@drawable/radiusbuttonround"
                         android:text="Edit Profile"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         app:backgroundTint="#ECA456"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_desc_profile" />
-
-                    <TextView
-                        android:id="@+id/tv_skill_profile"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="30dp"
-                        android:text="Skill"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btn_edit_hire_talent" />
-
-                    <TextView
-                        android:id="@+id/tv_skill1_talent_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/orange_skill"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="NodeJS"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_skill_profile" />
-
-                    <TextView
-                        android:id="@+id/tv_skill2_talent_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/orange_skill"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="Java"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toRightOf="@+id/tv_skill1_talent_home"
-                        app:layout_constraintTop_toBottomOf="@id/tv_skill_profile" />
-
-                    <TextView
-                        android:id="@+id/tv_skill3_talent_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/orange_skill"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="JavaScipt"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toRightOf="@+id/tv_skill2_talent_home"
-                        app:layout_constraintTop_toBottomOf="@id/tv_skill_profile" />
-
-                    <TextView
-                        android:id="@+id/tv_skill4_talent_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/orange_skill"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="NodeJS"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_skill1_talent_home" />
-
-                    <TextView
-                        android:id="@+id/tv_skill5_talent_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/orange_skill"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="NodeJs"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toRightOf="@+id/tv_skill4_talent_home"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_skill2_talent_home" />
-
-                    <TextView
-                        android:id="@+id/tv_skill6_talent_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/orange_skill"
-                        android:gravity="center"
-                        android:padding="4dp"
-                        android:text="PHP"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toRightOf="@+id/tv_skill5_talent_home"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_skill3_talent_home" />
-
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_gitlab_profile" />
 
                     <TextView
                         android:id="@+id/tv_email_icon_profile"
@@ -255,7 +153,7 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_skill4_talent_home" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_desc_profile" />
 
                     <TextView
                         android:id="@+id/tv_email_profile"
@@ -267,7 +165,7 @@
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toRightOf="@+id/tv_email_icon_profile"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_skill4_talent_home"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_desc_profile"
                         app:layout_goneMarginTop="30dp" />
 
                     <TextView
@@ -331,7 +229,6 @@
                         android:background="@drawable/gitlab_icon"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_github_icon_profile" />
 
@@ -352,6 +249,49 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cs_frame_2_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cs_frame_1_profile">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tv_skill_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="30dp"
+                        android:text="Skill"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_skill"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_skill_profile"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="720dp"
@@ -359,7 +299,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cs_frame_1_profile">
+                    app:layout_constraintTop_toBottomOf="@id/cs_frame_2_profile">
 
                     <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tab_layout"

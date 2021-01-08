@@ -1,14 +1,23 @@
 package com.afarelramdani.talentyou.content.projectrecruiter.addproject
 
+import android.Manifest
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.lifecycle.ViewModelProvider
+import androidx.loader.content.CursorLoader
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
 import com.afarelramdani.talentyou.databinding.ActivityAddProjectBinding
@@ -16,11 +25,11 @@ import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
 import kotlinx.android.synthetic.main.activity_add_project.*
 import kotlinx.coroutines.*
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,11 +37,14 @@ import java.util.*
 class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnClickListener {
     private lateinit var deadlineProject: DatePickerDialog.OnDateSetListener
     private lateinit var c: Calendar
-    private var IMG_REQUEST = 21
     private lateinit var service: ApiService
     private lateinit var coroutineScope: CoroutineScope
-    private lateinit var imageName: MultipartBody.Part
-    private lateinit var bitmap: Bitmap
+    private lateinit var viewModel: AddProjectViewModel
+
+    companion object {
+        private const val IMAGE_PICK_CODE = 1000;
+        private const val PERMISSION_CODE = 1001;
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,14 +53,17 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
 
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
+        viewModel = ViewModelProvider(this).get(AddProjectViewModel::class.java)
+
+        if (service != null) {
+            viewModel.setService(service)
+        }
 
         c = Calendar.getInstance()
 
 
         binding.ivProjectUpload.setOnClickListener(this)
-        binding.btnAddProject.setOnClickListener(this)
-
-        binding.projectDeadline.setOnClickListener(this)
+        binding.etProjectDeadline.setOnClickListener(this)
 
         deadlineProject()
     }
@@ -57,22 +72,26 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
         when(v?.id) {
             R.id.iv_project_upload -> {
 
-                if (EasyPermissions.hasPermissions(v.context,android.Manifest.permission.READ_EXTERNAL_STORAGE)){
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.setType("image/jpeg")
-                    startActivityForResult(intent, IMG_REQUEST)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_DENIED
+                    ) {
+                        //permission denied
+                        val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
+                        //show popup to request runtime permission
+                        requestPermissions(permissions, PERMISSION_CODE);
+                    } else {
+                        //permission already granted
+                        pickImageFromGallery();
+                    }
                 } else {
-                    EasyPermissions.requestPermissions(this,"This application need your permission to access image gallery.",991,android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    //system OS is < Marshmallow
+                    pickImageFromGallery();
                 }
 
             }
 
-            R.id.btn_add_project -> {
-                addProject()
-                this@AddProjectActivity.finish()
-            }
-
-            R.id.project_deadline -> {
+            R.id.et_project_deadline -> {
                 DatePickerDialog(
                     this, deadlineProject, c.get(Calendar.YEAR),
                     c.get(Calendar.MONTH),
@@ -83,13 +102,41 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
         }
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode) {
+            PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED){
+                    //permission from popup granted
+                    pickImageFromGallery()
+                }
+                else{
+                    //permission from popup denied
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+
+    private fun pickImageFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
+    }
+
     private fun deadlineProject() {
         deadlineProject = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             c.set(Calendar.YEAR, year)
             c.set(Calendar.MONTH, month)
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            val day = findViewById<TextView>(R.id.project_deadline)
+            val day = findViewById<TextView>(R.id.et_project_deadline)
             val Format = "yyyy-MM-dd"
             val sdf = SimpleDateFormat(Format, Locale.US)
 
@@ -100,51 +147,63 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null) {
-            var image = data.data
+        if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+            binding.ivProjectUpload.setImageURI(data?.data)
 
-            val dataResponse = image?.path?.replace("/raw/".toRegex(), "")
-            Log.d("Log Result Image", dataResponse.toString())
-            val requestBody = RequestBody.create("image/jpeg".toMediaTypeOrNull(), File(dataResponse!!))
-            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.data)
-            iv_project_upload.setImageBitmap(bitmap)
+            val filePath = data?.data?.let { getPath(this, it) }
+            val file = File(filePath)
 
-            imageName = MultipartBody.Part.createFormData("image", File(dataResponse).name, requestBody)
+            var img: MultipartBody.Part? = null
+            val mediaTypeImg = "image/jpeg".toMediaType()
+            val inputStream = data?.data?.let { contentResolver.openInputStream(it) }
+            val reqFile: RequestBody? = inputStream?.readBytes()?.toRequestBody(mediaTypeImg)
+
+            var cnId = sharePref.getCompanyId().toString()
+            var nameField = binding.etProjectName.text.toString()
+            var projectDesc = binding.etProjectDesc.text.toString()
+            var projectDeadline = binding.etProjectDeadline.text.toString()
 
 
+            var id = createPartFromString(cnId)
+            val name = createPartFromString(nameField)
+            val desc = createPartFromString(projectDesc)
+            val deadline = createPartFromString(projectDeadline)
+
+            img = reqFile?.let { it1 ->
+                MultipartBody.Part.createFormData("image", file.name, it1)
+            }
+
+            binding.btnAddProject.setOnClickListener {
+                if(img != null) {
+                    viewModel.addProject(id, name, desc, deadline, img)
+                }
+
+            }
         }
     }
-    private fun addProject() {
-        coroutineScope.launch {
-            Log.d("android2", "Start: ${Thread.currentThread().name}")
 
-            val response = withContext(Dispatchers.IO) {
-                Log.d("android2", "CallApi: ${Thread.currentThread().name}")
-                try {
-                    var idCompany = sharePref.getCompanyId().toString()
-                        .toRequestBody("text/plain".toMediaTypeOrNull())
-                    var name = binding.tvProjectName.text.toString()
-                        .toRequestBody("text/plain".toMediaTypeOrNull())
-                    var projectDesc = binding.projectDesc.text.toString()
-                        .toRequestBody("text/plain".toMediaTypeOrNull())
-                    var projectDeadline = binding.projectDeadline.text.toString()
-                        .toRequestBody("text/plain".toMediaTypeOrNull())
+    fun getPath(context: Context, contentUri: Uri) : String? {
+        var result: String? = null
+        val proj = arrayOf(MediaStore.Images.Media.DATA)
 
-                    service?.addProject(idCompany, name, projectDesc, projectDeadline)
-                } catch (e: Throwable) {
-                    e.printStackTrace()
-                }
-            }
+        val cursorLoader = CursorLoader(context, contentUri, proj, null, null, null)
+        val cursor = cursorLoader.loadInBackground()
 
-            if (response is AddProjectResponse) {
-                if (response.success) {
-                    Log.d("Data Company", response.toString())
-                    Toast.makeText(this@AddProjectActivity, "Succes Add Project", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@AddProjectActivity, "Failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-
+        if (cursor != null) {
+            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+            cursor.moveToFirst()
+            result = cursor.getString(columnIndex)
+            cursor.close()
         }
+        return result
+    }
+
+    @NonNull
+    private fun createPartFromString(json: String): RequestBody {
+        val mediaType = "multipart/form-data".toMediaType()
+        return json
+            .toRequestBody(mediaType)
+
+
     }
 }

@@ -19,7 +19,6 @@ class SharedPreferences(private val context: Context) {
        private val EN_ID = "ENGINEER ID"
        private val DETAIL_EN_ID = "ENGINEER ID"
        private val ENGINEER_NAME = "ENGINEER NAME"
-       private val ENGINEER_EMAIL = "ENGINEER EMAIL"
        private val JOB_TITLE = "JOB_TITTLE"
        private val PROJECT_ID = "PROJECT ID"
        private val IMAGE_PROFILE = "IMAGE PROFILE"
@@ -45,8 +44,13 @@ class SharedPreferences(private val context: Context) {
         edit.commit()
     }
 
+    fun getDetailEngineerId(): Int {
+        var detailEngineerId = sharedPreferences.getInt(DETAIL_EN_ID, 0)!!
+        return detailEngineerId
+    }
+
     fun getEngineerId(): Int {
-        var engineerId = sharedPreferences.getInt(DETAIL_EN_ID, 0)!!
+        var engineerId = sharedPreferences.getInt(EN_ID, 0)!!
         return engineerId
     }
 

@@ -1,82 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <RelativeLayout
-        android:id="@+id/rl_frame_1_experience"
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-            android:id="@+id/iv_experience"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ali" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
 
-        <TextView
-            android:id="@+id/tv_type_experience"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/iv_experience"
-            android:text="Engineer"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/backgroundCard"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_name_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_type_experience"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="90dp"
-            android:layout_toRightOf="@+id/iv_experience"
-            android:text="Alibaba"
-            android:textSize="15sp" />
+                <!-- Media -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_until_experience1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_name_company"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@id/iv_experience"
-            android:text="Agustus 2015 - Desember 2017"
-            android:textSize="12sp" />
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:id="@+id/tv_ex_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Web Developer"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        />
+                    <TextView
+                        android:id="@+id/tv_name_company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="PT Cahaya"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"
+                        />
 
-        <TextView
-            android:id="@+id/tv_time_experience"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_until_experience1"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@id/iv_experience"
-            android:text="6 Months"
-            android:textSize="12sp" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_until_experience1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Agusut 2015"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_until_div"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="-"
+                            android:layout_toRightOf="@id/tv_until_experience1"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_until_experience2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Agusut 2015"
+                            android:layout_toRightOf="@+id/tv_until_div"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary"
+                            />
 
 
-        <TextView
-            android:id="@+id/tv_desc_experience1"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_time_experience"
-            android:layout_marginLeft="31dp"
-            android:layout_marginTop="-1dp"
-            android:layout_marginBottom="20dp"
-            android:layout_toRightOf="@id/iv_experience"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-            android:textSize="12sp" />
-    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_time_experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="2 Month"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_desc_experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Desc"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"
+                        />
+
+                </LinearLayout>
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@android:color/holo_red_light"
+                        android:text="EDIT"
+                        style="?attr/borderlessButtonStyle"
+                        />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DELETE"
+                        style="?attr/borderlessButtonStyle"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

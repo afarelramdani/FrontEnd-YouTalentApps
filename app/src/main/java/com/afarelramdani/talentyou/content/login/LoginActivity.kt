@@ -64,7 +64,6 @@ class LoginActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnClickLi
                     viewModel.loginAccountTalent(binding.etLoginEmail.text.toString(),  binding.etLoginPassword.text.toString())
                 }
 
-
             }
 
             R.id.tv_forget_password_talent -> {
@@ -75,12 +74,13 @@ class LoginActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnClickLi
     }
 
     private fun subscribeLiveData() {
-        viewModel.isLoginLiveData.observe(this, Observer {
+        viewModel.isLoginLiveData.observe(this, {
             Log.d("android1", "$it")
 
             if (it) {
                 Toast.makeText(this, "Login Succcess", Toast.LENGTH_SHORT).show()
                 baseStartActivity<HomeActivity>(this)
+                finish()
             } else {
                 Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
             }
