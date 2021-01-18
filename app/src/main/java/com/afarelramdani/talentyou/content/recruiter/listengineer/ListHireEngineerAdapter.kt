@@ -44,9 +44,10 @@ class ListEngineerAdapter(private val listEngineer : ArrayList<ListEngineerModel
                 .into(holder.binding.ivTalent)
         }
 
-
+        holder.binding.tvTalentType.text = item.engineerJobType
         holder.binding.tvNameTalent.text = item.accountName
         holder.binding.tvJobTittle.text = item.engineerJobTitle
+        holder.binding.tvLocation.text = item.engineerLocation
 
 
         holder.itemView.setOnClickListener {

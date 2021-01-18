@@ -8,13 +8,19 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.MainActivity
 import com.afarelramdani.talentyou.R
+import com.afarelramdani.talentyou.content.account.UpdateAccountActivity
 import com.afarelramdani.talentyou.content.projectrecruiter.ProjectFragment
 import com.afarelramdani.talentyou.content.recruiter.FragmentHomeRecruiter
 import com.afarelramdani.talentyou.content.recruiter.FragmentProfileRecruiter
-import com.afarelramdani.talentyou.content.talent.FragmentHireTalent
+import com.afarelramdani.talentyou.content.hire.FragmentHireTalent
+import com.afarelramdani.talentyou.content.login.LoginActivity
+import com.afarelramdani.talentyou.content.search.FragmentSearch
 import com.afarelramdani.talentyou.content.talent.FragmentHomeTalent
 import com.afarelramdani.talentyou.content.talent.FragmentProfileTalent
 import com.afarelramdani.talentyou.databinding.ActivityHomeTalentBinding
@@ -26,32 +32,49 @@ import kotlinx.coroutines.*
 class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
     private lateinit var service: ApiService
     private lateinit var coroutineScope: CoroutineScope
+    private lateinit var viewModel: HomeActivityViewModel
+    val fragmentHomeTalent = FragmentHomeTalent()
+    val fragmentHomeRecruiter = FragmentHomeRecruiter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setLayout = R.layout.activity_home_talent
         super.onCreate(savedInstanceState)
 
+        coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
+        service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
+        viewModel = ViewModelProvider(this).get(HomeActivityViewModel::class.java)
+        viewModel.setSharedPreference(sharePref)
+
+        service()
+        isLogin()
+        showFragment()
+        subscribeLiveData()
+
+    }
+
+    fun service() {
+        if (service != null) {
+            viewModel.setRegisterService(service)
+        }
+
+    }
+
+    fun isLogin() {
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
             return;
         }
+    }
 
-        coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
-        service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
-
-
-        val fragmentHomeTalent = FragmentHomeTalent()
-        val fragmentHomeRecruiter = FragmentHomeRecruiter()
-
-
+    fun showFragment() {
         if (sharePref.getAccountLevel() == 1) {
-            getEngineerByAccountId()
+            viewModel.getEngineerByAccountId()
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container,
                 fragmentHomeTalent
             ).commit()
             binding.tvToolbar.setText("Home")
         } else if(sharePref.getAccountLevel() == 0) {
-
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container,
                 fragmentHomeRecruiter
@@ -60,16 +83,14 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
         }
 
         if(sharePref.getAccountLevel() == 1) {
-            getEngineerByAccountId()
+            viewModel.getEngineerByAccountId()
         } else {
-            getCompanyByAccountId()
+            viewModel.getCompanyByAccountId()
         }
-
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_1 -> {
-
                     if (sharePref.getAccountLevel() == 1) {
                         supportFragmentManager.beginTransaction().replace(
                             R.id.fragment_container,
@@ -88,6 +109,25 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                     true
                 }
 
+                R.id.page_2 -> {
+                    if (sharePref.getAccountLevel() == 1) {
+                        val fragmentSearch = FragmentSearch()
+                        supportFragmentManager.beginTransaction().replace(
+                            R.id.fragment_container,
+                            fragmentSearch
+                        ).commit()
+                        binding.tvToolbar.setText("Search")
+
+                    } else if (sharePref.getAccountLevel() == 0) {
+                        val fragmentSearch = FragmentSearch()
+                        supportFragmentManager.beginTransaction().replace(
+                            R.id.fragment_container,
+                            fragmentSearch
+                        ).commit()
+                        binding.tvToolbar.setText("Search")
+                    }
+                    true
+                }
 
                 R.id.page_3 -> {
                     if (sharePref.getAccountLevel() == 1) {
@@ -133,7 +173,6 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
                 else -> false
             }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -143,7 +182,16 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.item -> {
+            R.id.item1 -> {
+                if (sharePref.getAccountLevel() == 1) {
+                    baseStartActivity<UpdateAccountActivity>(this)
+                } else if (sharePref.getAccountLevel() == 0) {
+                    baseStartActivity<UpdateAccountActivity>(this)
+                }
+
+            }
+
+            R.id.item2 -> {
                 dialogLogout()
             }
         }
@@ -164,49 +212,17 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
         dialog.show()
     }
 
-    private fun getEngineerByAccountId() {
+    private fun subscribeLiveData() {
+        viewModel.isGetLiveData.observe(this, Observer {
+            Log.d("android1", "$it")
 
-        coroutineScope.launch {
-            val response = withContext(Dispatchers.IO) {
-                Log.d("android2", "CallApi: ${Thread.currentThread().name}")
-                try {
-                    service?.getEngineerIdByAccountId(sharePref.getAccountId())
-                } catch (e: Throwable) {
-
-                    e.printStackTrace()
-                }
+            if (it) {
+                Toast.makeText(this, "Get Data Succes", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Failed To Get Data!", Toast.LENGTH_SHORT).show()
+                baseStartActivity<LoginActivity>(this)
             }
-
-            if (response is DataEngineerRepsonse) {
-                Log.d("Data Engineer", response.toString())
-                sharePref.setEngineerData(response.data.engineerId, response.data.engineerPhoto, response.data.engineerJobTitle )
-                }
-
-
-            }
-
-        }
-
-    private fun getCompanyByAccountId() {
-
-        coroutineScope.launch {
-            Log.d("android2", "Start: ${Thread.currentThread().name}")
-
-            val response = withContext(Dispatchers.IO) {
-                Log.d("android2", "CallApi: ${Thread.currentThread().name}")
-                try {
-                    service?.getCompanyIdByAccountId(sharePref.getAccountId())
-                } catch (e: Throwable) {
-                    e.printStackTrace()
-                }
-            }
-
-            if (response is DataRecruiterResponse) {
-                Log.d("Data Company", response.toString())
-                sharePref.setCompanyData(response.data.companyId, response.data.companyFoto)
-            }
-
-        }
+        })
 
     }
 
@@ -224,7 +240,6 @@ class HomeActivity : BaseActivity<ActivityHomeTalentBinding>() {
         }
         return super.onKeyDown(keyCode, event)
     }
-
     }
 
 

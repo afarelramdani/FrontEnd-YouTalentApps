@@ -1,5 +1,6 @@
 package com.afarelramdani.talentyou.content.experience
 
+import android.opengl.Visibility
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -50,14 +51,34 @@ class ExperienceAdapter (private val listExperience: ArrayList<ExperienceModel>,
         holder.binding.tvTimeExperience.text = "$sum Month"
         holder.binding.tvDescExperience.text = item.experienceDesc
 
+        var sharePref = SharedPreferences(holder.itemView.context)
+
+        if (sharePref.getAccountLevel() == 0) {
+            holder.binding.btnDelete.visibility = View.GONE
+            holder.binding.btnUpdate.visibility = View.GONE
+            holder.binding.btnUbahData.visibility = View.GONE
+        }
+
         holder.binding.btnUpdate.setOnClickListener{
             onListExperienceClick.onExperienceEdit(position)
         }
         holder.binding.btnDelete.setOnClickListener{
             onListExperienceClick.onExperienceDelete(position)
         }
-    }
+        holder.binding.btnUbahData.setOnClickListener{
+            holder.binding.btnUpdate.visibility = View.VISIBLE
+            holder.binding.btnDelete.visibility = View.VISIBLE
+            holder.binding.btnCancel.visibility = View.VISIBLE
+            holder.binding.btnUbahData.visibility = View.GONE
+        }
 
+        holder.binding.btnCancel.setOnClickListener{
+            holder.binding.btnUpdate.visibility = View.GONE
+            holder.binding.btnDelete.visibility = View.GONE
+            holder.binding.btnCancel.visibility = View.GONE
+            holder.binding.btnUbahData.visibility = View.VISIBLE
+        }
+    }
 
 
     interface onListExperienceClickListener  {

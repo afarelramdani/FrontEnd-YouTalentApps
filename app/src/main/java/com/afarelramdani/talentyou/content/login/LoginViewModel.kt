@@ -47,12 +47,11 @@ class LoginViewModel: ViewModel(), CoroutineScope {
                     Log.d("android hans", response.toString())
                     var response = response.data
                     sharedPref.Remember(true)
-                    sharedPref.createAccountUser(response.acId, response.acName, response.acEmail, response.acLevel, response.token)
+                    sharedPref.createAccountUser(response.acId, response.acName, response.acNoHp, response.acEmail, response.acLevel, response.token)
                     isLoginLiveData.value = true
                 } else{
                     isLoginLiveData.value = false
                 }
-
 
             }
         }

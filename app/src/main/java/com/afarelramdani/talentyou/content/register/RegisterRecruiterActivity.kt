@@ -17,13 +17,14 @@ import kotlinx.coroutines.*
 class RegisterRecruiterActivity : BaseActivity<ActivityRegisterRecruiterBinding>(), View.OnClickListener {
     private lateinit var coroutineScope: CoroutineScope
     private lateinit var viewModel: RegisterRecruiterViewModel
+    private lateinit var service: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setLayout = R.layout.activity_register_recruiter
         super.onCreate(savedInstanceState)
 
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main )
-        val service = ApiClient.getApiClient(this)?.create(ApiService::class.java)
+        service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
         viewModel = ViewModelProvider(this).get(RegisterRecruiterViewModel::class.java)
         viewModel.setSharedPreference(sharePref)
 

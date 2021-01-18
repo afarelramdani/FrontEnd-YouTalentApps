@@ -1,6 +1,6 @@
 package com.afarelramdani.talentyou.content.experience
 
-class ExperienceModel(val exId: Int?,
+data class ExperienceModel(val exId: Int?,
                       val enId: Int?,
                       val experiencePosition: String?,
                       val experienceCompany: String?,

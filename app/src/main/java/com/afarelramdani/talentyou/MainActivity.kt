@@ -6,6 +6,7 @@ import android.widget.Button
 import com.afarelramdani.talentyou.databinding.ActivityMainBinding
 import com.afarelramdani.talentyou.content.home.HomeActivity
 import com.afarelramdani.talentyou.content.login.LoginActivity
+import com.afarelramdani.talentyou.content.register.OnBoardRegisterActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
     var isRemembered = false
@@ -13,12 +14,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
         setLayout = R.layout.activity_main
         super.onCreate(savedInstanceState)
 
-        val btnLoginRecruiter: Button = findViewById(R.id.btn_to_recruiter_login)
-        btnLoginRecruiter.setOnClickListener(this)
 
-        val btnLoginTalent: Button = findViewById(R.id.btn_to_talent_login)
-        btnLoginTalent.setOnClickListener(this)
-
+        binding.btnLogin.setOnClickListener(this)
+        binding.btnRegister.setOnClickListener(this)
 
         isRemembered = sharePref.isLogin()
         if(isRemembered) {
@@ -29,14 +27,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when(v?.id) {
-            R.id.btn_to_recruiter_login -> {
+            R.id.btn_login -> {
                 baseStartActivity<LoginActivity>(this)
             }
-            R.id.btn_to_talent_login -> {
-                baseStartActivity<LoginActivity>(this)
+            R.id.btn_register -> {
+                baseStartActivity<OnBoardRegisterActivity>(this)
             }
-
-
         }
     }
 }

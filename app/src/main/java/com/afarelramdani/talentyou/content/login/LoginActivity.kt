@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.afarelramdani.talentyou.BaseActivity
@@ -21,7 +22,7 @@ import kotlinx.coroutines.*
 class LoginActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnClickListener {
     private lateinit var coroutineScope: CoroutineScope
     private lateinit var viewModel: LoginViewModel
-
+    private lateinit var service: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setLayout = R.layout.activity_login_talent
@@ -30,17 +31,21 @@ class LoginActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnClickLi
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main )
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         viewModel.setSharedPreference(sharePref)
-        val service = ApiClient.getApiClient(this)?.create(ApiService::class.java)
+        service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
 
-        if (service != null) {
-            viewModel.setLoginService(service)
-        }
+        service()
 
         binding.tvGotoregisterTalentLogin.setOnClickListener(this)
         binding.btnLoginTalent.setOnClickListener(this)
         binding.tvForgetPasswordTalent.setOnClickListener(this)
 
         subscribeLiveData()
+    }
+
+    fun service(){
+        if (service != null) {
+            viewModel.setLoginService(service)
+        }
     }
 
     override fun onClick(v: View?) {
@@ -79,10 +84,11 @@ class LoginActivity : BaseActivity<ActivityLoginTalentBinding>(), View.OnClickLi
 
             if (it) {
                 Toast.makeText(this, "Login Succcess", Toast.LENGTH_SHORT).show()
+                sharePref.createTempPassword(binding.etLoginPassword.text.toString())
                 baseStartActivity<HomeActivity>(this)
                 finish()
             } else {
-                Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
+                binding.tvPassword.error = getString(R.string.failedlogin)
             }
         })
 

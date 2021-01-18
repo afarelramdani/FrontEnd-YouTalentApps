@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/item"
+        android:id="@+id/item1"
+        app:showAsAction="never"
+        android:icon="@drawable/search"
+        android:title="Update Account"/>
+
+
+    <item
+        android:id="@+id/item2"
         app:showAsAction="never"
         android:icon="@drawable/search"
         android:title="Logout"/>

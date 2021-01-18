@@ -51,6 +51,7 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
         setLayout = R.layout.activity_add_project
         super.onCreate(savedInstanceState)
 
+        c = Calendar.getInstance()
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
         viewModel = ViewModelProvider(this).get(AddProjectViewModel::class.java)
@@ -59,13 +60,21 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
             viewModel.setService(service)
         }
 
-        c = Calendar.getInstance()
-
 
         binding.ivProjectUpload.setOnClickListener(this)
         binding.etProjectDeadline.setOnClickListener(this)
 
+       setToolbarActionBar()
         deadlineProject()
+    }
+
+    private fun setToolbarActionBar() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Add Project"
+        binding.toolbar.setNavigationOnClickListener{
+            onBackPressed()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -140,7 +149,7 @@ class AddProjectActivity : BaseActivity<ActivityAddProjectBinding>(), View.OnCli
             val Format = "yyyy-MM-dd"
             val sdf = SimpleDateFormat(Format, Locale.US)
 
-            day.text = sdf.format(c.time)
+            day.setText(sdf.format(c.time))
         }
     }
 

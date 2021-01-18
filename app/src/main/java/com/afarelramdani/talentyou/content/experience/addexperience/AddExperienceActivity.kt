@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.afarelramdani.talentyou.BaseActivity
 import com.afarelramdani.talentyou.R
+import com.afarelramdani.talentyou.content.home.HomeActivity
+import com.afarelramdani.talentyou.content.login.LoginViewModel
 import com.afarelramdani.talentyou.databinding.ActivityAddExperienceBinding
 import com.afarelramdani.talentyou.remote.ApiClient
 import com.afarelramdani.talentyou.util.ApiService
@@ -21,6 +24,7 @@ class AddExperienceActivity : BaseActivity<ActivityAddExperienceBinding>(), View
     private lateinit var service: ApiService
     private lateinit var coroutineScope: CoroutineScope
     private lateinit var c: Calendar
+    private lateinit var viewModel: AddExperienceViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setLayout = R.layout.activity_add_experience
@@ -28,17 +32,36 @@ class AddExperienceActivity : BaseActivity<ActivityAddExperienceBinding>(), View
 
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         service = ApiClient.getApiClient(this)!!.create(ApiService::class.java)
+        viewModel = ViewModelProvider(this).get(AddExperienceViewModel::class.java)
+        viewModel.setSharedPreference(sharePref)
+
+        if (service != null) {
+            viewModel.setLoginService(service)
+        }
 
         c = Calendar.getInstance()
 
         binding.experienceStart.setOnClickListener(this)
         binding.experienceEnd.setOnClickListener(this)
 
+        setToolbarActionBar()
+
+
         startExperience()
         endExperience()
+        subscribeLiveData()
 
     }
 
+
+    private fun setToolbarActionBar() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Add Experience"
+        binding.toolbar.setNavigationOnClickListener{
+            onBackPressed()
+        }
+    }
 
     private fun startExperience() {
             dateExperienceStart = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
@@ -92,29 +115,23 @@ class AddExperienceActivity : BaseActivity<ActivityAddExperienceBinding>(), View
                 val exStart = binding.experienceStart.text.toString()
                 val exEnd = binding.experienceEnd.text.toString()
 
-                AddExperience(enId, exPosition, exCompany, exStart, exEnd, exDesc)
-                this@AddExperienceActivity.finish()
-
+                viewModel.AddExperience(enId, exPosition, exCompany, exStart, exEnd, exDesc)
             }
         }
     }
 
-    private fun AddExperience(enId: Int, exPosition: String, exCompany: String, exStart: String, exEnd: String, exDesc: String) {
-        coroutineScope.launch {
-            val response = withContext(Dispatchers.IO) {
-                try {
-                    service.addExperience(enId,exPosition,exCompany,exStart,exEnd,exDesc)
-                } catch (e:Throwable) {
-                    e.printStackTrace()
-                }
+    private fun subscribeLiveData() {
+        viewModel.isAddExperienceLiveData.observe(this, {
+            Log.d("android1", "$it")
+            if (it) {
+                Toast.makeText(this, "Add Experience Succcess", Toast.LENGTH_SHORT).show()
+                baseStartActivity<HomeActivity>(this)
+                finish()
+            } else {
+                Toast.makeText(this, "Add Experience Failed!", Toast.LENGTH_SHORT).show()
             }
-            Log.d("errornih", response.toString())
+        })
 
-            if (response is AddExperienceResponse) {
-                Log.d("masukga", response.toString())
-                Toast.makeText(this@AddExperienceActivity, "Success Add Experience", Toast.LENGTH_SHORT).show()
-                this@AddExperienceActivity.finish()
-            }
-        }
     }
+
 }

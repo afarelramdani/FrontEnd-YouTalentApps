@@ -13,15 +13,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:orientation="vertical">
+            android:background="@color/white"
+            android:orientation="horizontal">
 
-            <ImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/iv_project_list"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
                 app:srcCompat="@drawable/project" />
 
             <LinearLayout
@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Project Name"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     />
                 <RelativeLayout
@@ -49,7 +49,7 @@
                         android:text="Deadline : "
                         android:textSize="15sp"
                         android:layout_marginTop="8dp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         />
 
                     <TextView
@@ -60,7 +60,7 @@
                         android:textSize="15sp"
                         android:layout_marginTop="8dp"
                         android:layout_toRightOf="@id/tv_project_deadline_label"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         />
 
                 </RelativeLayout>
@@ -68,16 +68,16 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/tv_Rp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Rp."
-                        android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="@color/white"
-                        />
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
                     <TextView
                         android:id="@+id/tv_hr_price"
                         android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
                         android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"
                         android:layout_toRightOf="@id/tv_Rp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         />
 
                 </RelativeLayout>
@@ -104,7 +104,7 @@
                         android:text="Status : "
                         android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         />
                     <TextView
                         android:id="@+id/tv_status"
@@ -115,24 +115,26 @@
                         android:textSize="15sp"
                         android:textAppearance="?attr/textAppearanceBody2"
                         android:layout_toRightOf="@id/tv_status_label"
-                        android:textColor="@color/white"
-                        />
+                        android:textColor="@color/black"/>
+
+
 
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/tv_message"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Message"
-                    android:textSize="15sp"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:layout_toRightOf="@id/tv_status_label"
-                    android:textColor="@color/white"
-                    />
+                    android:layout_height="wrap_content">
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Detail"
+                        style="?attr/borderlessButtonStyle"
+                        />
 
+                </RelativeLayout>
 
 
 
@@ -145,23 +147,7 @@
                 android:layout_margin="8dp"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_approve"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:backgroundTint="#ff0000"
-                    android:text="ACCEPT"
-                    android:gravity="center"
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_marginRight="8dp" />
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_reject"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="REJECT"
-                    style="?attr/borderlessButtonStyle"
-                    />
+
             </LinearLayout>
 
         </LinearLayout>

@@ -18,11 +18,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".content.experience.updateexperience.UpdateExperienceActivity"></activity>
+        <activity android:name=".content.account.EditPasswordActivity"></activity>
+        <activity android:name=".content.projectrecruiter.updateproject.UpdateProjectActivity" />
+        <activity android:name=".content.account.UpdateAccountActivity" />
+        <activity android:name=".content.account.UpdateAccountTalentActivity" />
+        <activity android:name=".content.recruiter.editrecruiter.EditRecruiterImageActivity" />
+        <activity android:name=".content.projectrecruiter.detailproject.DetailProjectActivity" />
+        <activity android:name=".content.hire.detailhire.DetailHireActivity" />
+        <activity android:name=".content.skill.addskill.AddSkillActivity" />
+        <activity android:name=".content.portofolio.updateportofolio.UpdatePortofolioActivity" />
+        <activity android:name=".content.portofolio.addportofolio.AddPortofolioActivity" />
+        <activity android:name=".content.experience.updateexperience.UpdateExperienceActivity" />
         <activity android:name=".content.experience.addexperience.AddExperienceActivity" />
         <activity android:name=".content.register.OnBoardRegisterActivity" />
-        <activity android:name=".content.hire.AddHireActivity" />
-        <activity android:name=".content.talent.DetailTalentActivity" />
+        <activity android:name=".content.hire.addhire.AddHireActivity" />
+        <activity android:name=".content.recruiter.listengineer.DetailTalentActivity" />
         <activity android:name=".content.projectrecruiter.addproject.AddProjectActivity" />
         <activity android:name=".content.webview.WebViewActivity" />
         <activity android:name=".content.home.HomeActivity" />
@@ -30,12 +40,8 @@
         <activity android:name=".content.login.ForgetPasswordConfirmationActivity" />
         <activity android:name=".content.recruiter.editrecruiter.EditRecruiterActivity" />
         <activity android:name=".content.inbox.InboxActivity" />
-        <activity android:name=".content.search.SearchResultActivity" />
-        <activity android:name=".content.search.SearchActivity" />
         <activity android:name=".content.register.RegisterRecruiterActivity" />
         <activity android:name=".content.register.RegisterTalentActivity" />
-        <activity android:name=".content.home.HomeRecruiterActivity" />
-        <activity android:name=".content.login.LoginRecruiterActivity" />
         <activity android:name=".content.login.LoginActivity" />
         <activity
             android:name=".SplashScreen"

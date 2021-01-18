@@ -27,6 +27,9 @@
     <string name="recruiter">Recruiter</string>
     <string name="login">Login</string>
     <string name="eror">Password Tidak Sama</string>
+    <string name="erorconfirm">Password Tidak Sesuai </string>
+    <string name="erorfild"> Tolong isi semua data </string>
+    <string name="failedlogin"> Login Gagal</string>
     <string name="password">Password</string>
     <string name="lupa_kata_sandi">Lupa Kata Sandi ?</string>
     <string name="perusahaan">Perusahaan</string>

@@ -7,14 +7,17 @@ data class LoginResponse(val success: Boolean, val message: String, val data: Ac
         @SerializedName("ac_id")
         val acId: Int,
 
+        @SerializedName("ac_name")
+        val acName: String,
+
+        @SerializedName("ac_no_hp")
+        val acNoHp: String,
+
         @SerializedName("ac_email")
         val acEmail: String,
 
         @SerializedName("ac_level")
         val acLevel: Int,
-
-        @SerializedName("ac_name")
-        val acName: String,
 
         @SerializedName("token")
         val token: String

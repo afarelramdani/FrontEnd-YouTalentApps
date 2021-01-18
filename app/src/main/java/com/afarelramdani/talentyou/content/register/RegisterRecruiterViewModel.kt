@@ -40,8 +40,9 @@ class RegisterRecruiterViewModel: ViewModel(), CoroutineScope {
                         companyPosition,
                     )
                 } catch (t: Throwable) {
-                    Log.e("msg", "${t.message}")
-                    println("Data Tidak Ada")
+                    withContext(Dispatchers.Main) {
+                        isRegisterLiveData.value = false
+                    }
                 }
             }
 
@@ -51,7 +52,6 @@ class RegisterRecruiterViewModel: ViewModel(), CoroutineScope {
                 } else {
                     isRegisterLiveData.value = false
                 }
-
             }
         }
     }

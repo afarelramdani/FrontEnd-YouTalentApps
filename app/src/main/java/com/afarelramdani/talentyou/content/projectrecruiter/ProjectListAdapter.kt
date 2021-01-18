@@ -9,13 +9,11 @@ import com.afarelramdani.talentyou.databinding.ItemProjectBinding
 import com.bumptech.glide.Glide
 import java.util.*
 
-class ProjectListAdapter: RecyclerView.Adapter<ProjectListAdapter.ProjectHolder>() {
-
-    private var items = mutableListOf<ProjectModel>()
+class ProjectListAdapter(private val listProject: ArrayList<ProjectModel>, private val onListProjectClickListener: OnListProjectClickListener): RecyclerView.Adapter<ProjectListAdapter.ProjectHolder>() {
 
     fun addList(list: List<ProjectModel>) {
-        items.clear()
-        items.addAll(list)
+        listProject.clear()
+        listProject.addAll(list)
         notifyDataSetChanged()
     }
 
@@ -35,7 +33,7 @@ class ProjectListAdapter: RecyclerView.Adapter<ProjectListAdapter.ProjectHolder>
     }
 
     override fun onBindViewHolder(holder: ProjectHolder, position: Int) {
-        val item = items[position]
+        val item = listProject[position]
         val img = "http://3.80.117.134:2000/image/${item.projectPicture}"
 
         holder.binding.tvProjectName.text = item.projectName
@@ -48,6 +46,15 @@ class ProjectListAdapter: RecyclerView.Adapter<ProjectListAdapter.ProjectHolder>
             .error(R.drawable.projectdefault)
             .into(holder.binding.ivProject)
 
+        holder.binding.btnDetailProject.setOnClickListener {
+            onListProjectClickListener.onProjectItemClicked(position)
+        }
+
     }
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = listProject.size
+
+    interface OnListProjectClickListener {
+        fun onProjectItemClicked(position : Int)
+    }
+
 }
